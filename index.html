@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rajasthali Exports — Versions</title>
+<meta name="description" content="Three design versions of the Rajasthali Exports site. Open /v1, /v2, or /v3.">
+<meta name="theme-color" content="#4A1C24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep: #4A1C24; --ink: #241816; --sand: #F6F0E6; --paper: #FBF7F1;
+    --gold: #C6A15A; --gold-2: #E6D2A3; --clay: #9A4523; --muted: #6A5E58;
+    --line: rgba(74,28,36,.14);
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Outfit", "Segoe UI", sans-serif;
+    --deva: "Tiro Devanagari Hindi", serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--sand); color: var(--ink); font-family: var(--sans); font-weight: 380; line-height: 1.5; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -.03em; line-height: .95; margin: 0; }
+  p { margin: 0; }
+  .wrap { width: min(1100px, calc(100% - 40px)); margin-inline: auto; }
+  header { padding: 1.4rem 0 0; }
+  .brand { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .deva { font-family: var(--deva); color: var(--clay); font-size: .95rem; }
+  .en { font-family: var(--serif); font-size: 1.45rem; }
+  .en em { font-style: italic; font-weight: 500; }
+  .path { letter-spacing: .18em; text-transform: uppercase; font-size: .72rem; color: var(--muted); }
+  main { padding: 2.2rem 0 3rem; }
+  h1 { font-size: clamp(3rem, 7vw, 5.6rem); max-width: 12ch; }
+  h1 em { font-style: italic; color: var(--deep); }
+  .lead { max-width: 36rem; color: var(--muted); margin-top: 1rem; font-weight: 300; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.2rem; }
+  .card {
+    display: flex; flex-direction: column; min-height: 340px;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 22px;
+    padding: 1.2rem 1.2rem 1.15rem; position: relative; overflow: hidden;
+    transition: transform .45s cubic-bezier(.16,1,.3,1), border-color .3s;
+  }
+  .card:hover { transform: translateY(-6px); border-color: var(--deep); }
+  .card:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 3px; }
+  .card::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 7px;
+    background: var(--deep);
+  }
+  .card.v2::before { background: #2A1014; }
+  .card.v3::before { background: var(--gold); }
+  .kicker { display: flex; justify-content: space-between; align-items: center; margin-top: .4rem; }
+  .num { font-family: var(--serif); font-size: 1.7rem; color: var(--deep); }
+  .route { letter-spacing: .16em; text-transform: uppercase; font-size: .68rem; color: var(--clay); }
+  h2 { font-size: clamp(2rem, 3vw, 2.5rem); margin: 1.1rem 0 .6rem; max-width: 10ch; }
+  .card p { color: var(--muted); font-weight: 300; }
+  .go { margin-top: auto; padding-top: 1.4rem; letter-spacing: .16em; text-transform: uppercase; font-size: .7rem; }
+  .go span { border-bottom: 1px solid currentColor; }
+  footer { padding: 0 0 1.6rem; color: var(--muted); font-size: .85rem; }
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: 1fr; }
+    .card { min-height: 0; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap brand">
+    <div>
+      <div class="deva">राजस्थली</div>
+      <div class="en">Rajasthali <em>Exports</em></div>
+    </div>
+    <div class="path">Jaipur · men's footwear</div>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <h1>Three versions. <em>One house.</em></h1>
+    <p class="lead">Each box opens a full design. The address changes with it, so a version can be sent on its own.</p>
+    <div class="grid">
+      <a class="card v1" href="v1/">
+        <div class="kicker"><span class="num">01</span><span class="route">/v1</span></div>
+        <h2>The first cut</h2>
+        <p>The pair in the arch, four lasts, the Hawa Mahal lens, and the shop.</p>
+        <div class="go"><span>Open this version</span></div>
+      </a>
+      <a class="card v2" href="v2/">
+        <div class="kicker"><span class="num">02</span><span class="route">/v2</span></div>
+        <h2>The men's last</h2>
+        <p>A side-view mojari you can turn. The stitch draws on, then the pair is made in four steps.</p>
+        <div class="go"><span>Open this version</span></div>
+      </a>
+      <a class="card v3" href="v3/">
+        <div class="kicker"><span class="num">03</span><span class="route">/v3</span></div>
+        <h2>The shop floor</h2>
+        <p>Mojari, khussa, and nagra on one counter. Filter the leather, then put a size in the bag.</p>
+        <div class="go"><span>Open this version</span></div>
+      </a>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">Design concept. Drawings stand in for studio photography. Nothing on these pages is charged.</div>
+</footer>
+</body>
+</html>

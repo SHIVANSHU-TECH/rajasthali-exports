@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rajasthali Exports — Jaipur men's footwear</title>
+<meta name="description" content="A design concept for Rajasthali Exports: Jaipur men's mojaris, khussas, and nagras, with a working bag, search, and trade note.">
+<meta name="theme-color" content="#4A1C24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
+<style>
+  :root {
+    --maroon: #722F37;
+    --maroon-deep: #4A1C24;
+    --ink: #241816;
+    --muted: #5C514C;
+    --clay: #9A4523;
+    --gold: #C6A15A;
+    --gold-2: #E6D2A3;
+    --sand: #F6F0E6;
+    --sand-2: #EADFCF;
+    --paper: #FBF8F4;
+    --line: rgba(74, 28, 36, .14);
+    --header: 104px;
+    --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --sans: "Outfit", "Segoe UI", sans-serif;
+    --deva: "Tiro Devanagari Hindi", serif;
+    --shadow: 0 24px 60px rgba(48, 18, 22, .14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scrollbar-color: var(--maroon) var(--sand); }
+  body {
+    margin: 0;
+    background: var(--sand);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 360;
+    font-size: 16px;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; display: block; }
+  button, input, textarea, select { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -.03em; line-height: .96; margin: 0; }
+  p { margin: 0; }
+  ::selection { background: var(--maroon); color: var(--sand); }
+  :focus-visible { outline: 2px solid var(--maroon); outline-offset: 3px; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--maroon); border-radius: 99px; border: 2px solid var(--sand); }
+  .skip {
+    position: absolute; left: 1rem; top: -4rem; z-index: 120;
+    background: var(--maroon); color: var(--sand); padding: .6rem 1rem; border-radius: 99px;
+  }
+  .skip:focus { top: 1rem; }
+  .wrap { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .eyebrow {
+    font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--maroon); font-weight: 500; margin: 0 0 .8rem;
+  }
+  .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+  .progress {
+    position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 95;
+    background: linear-gradient(90deg, #8C6232, var(--gold-2));
+    transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
+  }
+
+  /* Loader — haveli doors */
+  .loader {
+    position: fixed; inset: 0; z-index: 100; pointer-events: none;
+  }
+  .gate {
+    position: absolute; top: 0; bottom: 0; width: 50.4%;
+    background-color: #3A1419;
+    background-image: radial-gradient(circle at 18px 18px, #E6D2A3 1.25px, transparent 1.5px);
+    background-size: 36px 36px;
+    box-shadow: inset 0 0 0 10px rgba(230, 210, 163, .18);
+    transition: transform 1.15s cubic-bezier(.77, 0, .18, 1);
+  }
+  .gate-l { left: 0; border-right: 1px solid rgba(230, 210, 163, .55); }
+  .gate-r { right: 0; border-left: 1px solid rgba(230, 210, 163, .55); }
+  .gate::after {
+    content: ""; position: absolute; top: 10vh; height: 38vh; width: 42%;
+    border: 1px solid rgba(230, 210, 163, .5); border-bottom: 0;
+    border-radius: 200px 200px 0 0;
+  }
+  .gate-l::after { right: 12%; }
+  .gate-r::after { left: 12%; }
+  html.is-open .gate-l { transform: translateX(-105%); }
+  html.is-open .gate-r { transform: translateX(105%); }
+  .loader-mark {
+    position: absolute; inset: 0; display: grid; place-items: center; align-content: center;
+    color: var(--gold-2); text-align: center; z-index: 2;
+    transition: opacity .35s ease;
+  }
+  html.is-open .loader-mark { opacity: 0; }
+  .loader-mark .deva { font-family: var(--deva); font-size: 2.4rem; margin: .4rem 0 0; }
+  .loader-mark .en { letter-spacing: .28em; text-transform: uppercase; font-size: .72rem; margin-top: .2rem; }
+  html.js:not(.ready) { overflow: hidden; }
+
+  /* Header */
+  .site-header { position: fixed; inset: 0 0 auto 0; z-index: 70; color: var(--ink); }
+  .announce {
+    height: 34px; display: flex; align-items: center; justify-content: center; gap: 1rem;
+    background: var(--maroon-deep); color: var(--gold-2);
+    font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+    overflow: hidden; white-space: nowrap; padding-inline: 1rem;
+  }
+  .announce a { border-bottom: 1px solid rgba(230, 210, 163, .5); }
+  .nav-bar {
+    height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    background: rgba(246, 240, 230, .78); backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+  }
+  .site-header.is-stuck .nav-bar { border-bottom-color: var(--line); background: rgba(246, 240, 230, .94); }
+  .logo { display: flex; align-items: center; gap: .65rem; min-width: 0; }
+  .logo-en, .logo-deva { white-space: nowrap; }
+  .logo svg { width: 34px; height: 34px; color: var(--maroon); flex: none; }
+  .logo-deva { display: block; font-family: var(--deva); font-size: .92rem; line-height: 1.25; color: var(--clay); }
+  .logo-en { display: block; font-family: var(--serif); font-size: 1.35rem; line-height: 1; letter-spacing: -.02em; }
+  .logo-en em { font-style: italic; color: var(--muted); font-weight: 500; }
+  .nav-links { display: flex; gap: 1.35rem; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; }
+  .nav-links a { position: relative; padding: .3rem 0; }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: var(--maroon); transform: scaleX(0); transform-origin: left; transition: transform .35s;
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-tools { display: flex; align-items: center; gap: .15rem; }
+  .icon-btn {
+    width: 42px; height: 42px; border: 0; background: transparent; border-radius: 50%;
+    display: grid; place-items: center; position: relative; color: inherit;
+  }
+  .icon-btn:hover { background: rgba(114, 47, 55, .08); }
+  .icon-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+  .icon-btn.is-saved { color: var(--maroon); }
+  .icon-btn.is-saved svg path { fill: currentColor; }
+  .badge {
+    position: absolute; top: 4px; right: 2px; min-width: 16px; height: 16px; padding: 0 4px;
+    border-radius: 99px; background: var(--clay); color: white; font-size: 10px; font-weight: 600;
+    display: grid; place-items: center;
+  }
+  .badge[hidden] { display: none; }
+  .badge.pop { animation: pop .35s ease; }
+  .bag-total { font-size: .78rem; font-weight: 550; letter-spacing: .04em; padding-right: .35rem; }
+  .menu-btn { display: none; width: 42px; height: 42px; border: 0; background: transparent; border-radius: 50%; }
+  .menu-btn span {
+    display: block; width: 18px; height: 1.5px; margin: 5px auto; background: currentColor;
+    transition: transform .35s;
+  }
+  .menu-btn.is-open span:first-child { transform: translateY(6.5px) rotate(40deg); }
+  .menu-btn.is-open span:last-child { transform: translateY(-6.5px) rotate(-40deg); }
+  .nav-overlay {
+    position: fixed; inset: 0; z-index: 60; background: var(--maroon-deep); color: var(--sand);
+    padding: 130px 8vw 48px; transform: translateY(-101%);
+    transition: transform .6s cubic-bezier(.77, 0, .18, 1);
+  }
+  .nav-overlay.is-open { transform: none; }
+  .nav-overlay a {
+    display: block; font-family: var(--serif); font-size: clamp(2.6rem, 8vw, 4.4rem);
+    line-height: 1.05; color: var(--sand); opacity: 0; transform: translateY(18px);
+  }
+  .nav-overlay.is-open a { opacity: 1; transform: none; transition: .55s cubic-bezier(.16,1,.3,1); }
+  .nav-overlay.is-open a:nth-child(1) { transition-delay: .08s; }
+  .nav-overlay.is-open a:nth-child(2) { transition-delay: .14s; }
+  .nav-overlay.is-open a:nth-child(3) { transition-delay: .2s; }
+  .nav-overlay.is-open a:nth-child(4) { transition-delay: .26s; }
+  .nav-overlay.is-open a:nth-child(5) { transition-delay: .32s; }
+  .site-header.is-menu { z-index: 85; }
+  .site-header.is-menu .announce { height: 0; overflow: hidden; }
+  .site-header.is-menu .nav-bar { background: transparent; }
+  .site-header.is-menu .logo,
+  .site-header.is-menu .menu-btn,
+  .site-header.is-menu .nav-tools { color: var(--sand); }
+  .site-header.is-menu .logo em { color: var(--gold-2); }
+  .site-header.is-menu .logo svg { color: var(--gold-2); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+    min-height: 48px; padding: 0 1.25rem; border-radius: 999px; border: 1px solid transparent;
+    letter-spacing: .13em; text-transform: uppercase; font-size: .75rem; font-weight: 500;
+    transition: background .3s, color .3s, border-color .3s, transform .3s;
+  }
+  .btn-fill { background: var(--maroon); color: var(--sand); }
+  .btn-fill:hover { background: var(--maroon-deep); }
+  .btn-line { background: transparent; color: var(--maroon); border-color: rgba(114, 47, 55, .35); }
+  .btn-line:hover { background: white; border-color: var(--maroon); }
+  .btn-light { background: var(--sand); color: var(--maroon-deep); }
+  .btn-light:hover { background: white; }
+  .btn-gold { background: var(--gold-2); color: var(--maroon-deep); }
+  .btn-gold:hover { background: #f3e6c4; }
+  .btn-sm { min-height: 40px; padding: 0 .9rem; font-size: .68rem; }
+  .nav-cta { margin-left: .35rem; }
+
+  /* Hero */
+  .hero { min-height: 100vh; padding: calc(var(--header) + 28px) 0 64px; position: relative; overflow: hidden; }
+  .jaali { position: absolute; inset: -40px; width: calc(100% + 80px); height: calc(100% + 80px); opacity: .055; pointer-events: none; }
+  .hero-grid { position: relative; display: grid; grid-template-columns: 1.12fr .88fr; gap: 3.5rem; align-items: center; }
+  h1 { font-size: clamp(3.15rem, 5.2vw, 5.15rem); color: var(--ink); }
+  h1 em { display: block; margin-top: .12em; font-style: italic; font-weight: 500; color: #7A3428; }
+  .word { display: inline-block; vertical-align: bottom; margin-right: .22em; clip-path: inset(0 -0.12em); }
+  .word span { display: inline-block; }
+  html.js:not(.is-open) .word span { transform: translateY(115%); }
+  html.is-open .word span { animation: rise 1.05s cubic-bezier(.16,1,.3,1) forwards; animation-delay: var(--d, 0s); }
+  .hero-lead { margin-top: 1.4rem; max-width: 38rem; color: var(--muted); font-size: 1.05rem; font-weight: 300; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.6rem; }
+  .hero-facts { display: flex; flex-wrap: wrap; gap: 1.25rem 1.75rem; margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+  .hero-facts strong { display: block; font-family: var(--serif); font-size: 1.35rem; font-weight: 500; letter-spacing: -.02em; }
+  .hero-facts span { color: var(--muted); font-size: .82rem; }
+  .rise-in { opacity: 0; transform: translateY(16px); }
+  html.is-open .rise-in { animation: fadeup .8s ease forwards; animation-delay: var(--d, 0s); }
+  .hero-visual { position: relative; }
+  .hero-frame {
+    position: relative; height: clamp(440px, calc(100vh - 220px), 720px);
+    border-radius: 999px 999px 28px 28px; overflow: hidden; background: #C9B59A;
+    box-shadow: var(--shadow);
+  }
+  .hero-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+  .chip {
+    position: absolute; z-index: 1; top: 18px; left: 18px;
+    background: rgba(251, 248, 244, .92); color: var(--maroon-deep);
+    font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+    padding: .45rem .7rem; border-radius: 999px;
+  }
+  .hero-swatch {
+    position: absolute; z-index: 1; left: 7%; bottom: 7%;
+    width: 116px; height: 154px; border-radius: 14px; border: 3px solid var(--paper);
+    box-shadow: 0 16px 40px rgba(40, 16, 16, .28);
+    display: flex; align-items: flex-end; padding: .55rem;
+  }
+  .hero-swatch span { color: var(--gold-2); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; }
+
+  .cloth {
+    background-color: #6E2430;
+    background-image:
+      linear-gradient(rgba(230, 210, 163, .28) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(230, 210, 163, .28) 1px, transparent 1px),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='140' viewBox='0 0 120 140'%3E%3Cpath fill='none' stroke='%23E6D2A3' stroke-width='1.6' d='M60 16c16 18 24 30 18 50-6 20-16 30-18 50-2-20-12-30-18-50-6-20 2-32 18-50z'/%3E%3Cpath fill='none' stroke='%23E6D2A3' stroke-width='1.1' d='M60 34c8 10 10 18 4 30-4 10-4 16-4 24 0-8 0-14-4-24-6-12-4-20 4-30z'/%3E%3Ccircle cx='60' cy='18' r='3.2' fill='%23E6D2A3'/%3E%3C/svg%3E");
+    background-size: 34px 34px, 34px 34px, 120px 140px;
+  }
+  .cloth-indigo { background-color: #16343C; }
+  .leather {
+    background-color: #3B241C;
+    background-image:
+      radial-gradient(circle at 16px 16px, rgba(232, 196, 140, .45) 1.15px, transparent 1.5px),
+      repeating-linear-gradient(45deg, transparent 0 12px, rgba(232, 196, 140, .18) 12px 13px),
+      repeating-linear-gradient(-45deg, transparent 0 12px, rgba(232, 196, 140, .18) 12px 13px);
+    background-size: 32px 32px, 24px 24px, 24px 24px;
+  }
+  .is-live { animation: clothMove 22s linear infinite; }
+  .jutti-svg { color: #722F37; display: block; width: 100%; height: auto; overflow: visible; }
+  .jutti-madder { color: #8E3542; }
+  .jutti-rose { color: #C46A74; }
+  .jutti-indigo { color: #1E4E5C; }
+  .jutti-sea { color: #7EB0B4; }
+  .jutti-ivory { color: #F7F1E6; }
+  .jutti-tan { color: #C4895A; }
+  .jutti-gold { color: #E6D2A3; }
+  .jutti-black { color: #241C1A; }
+  .shoe-stage {
+    display: grid; place-items: center;
+    background:
+      radial-gradient(ellipse at 50% 88%, rgba(74, 28, 36, .2), transparent 52%),
+      linear-gradient(180deg, #E7D3B4 0%, #C4A27A 48%, #8E6239 100%);
+  }
+  .pair { width: min(82%, 420px); display: flex; align-items: flex-end; justify-content: center; }
+  .pair .jutti-svg { position: relative; width: 52%; height: auto; filter: drop-shadow(0 18px 12px rgba(40, 16, 12, .32)); }
+  .pair .back { transform: rotate(-8deg) translate(10px, 16px); }
+  .pair .front { width: 56%; margin-left: -14%; transform: rotate(9deg) translate(-4px, 0); }
+  .shoe-frame {
+    height: clamp(460px, 68vh, 680px); border-radius: 240px 240px 28px 28px;
+    position: relative; box-shadow: var(--shadow); overflow: hidden;
+    display: grid; place-items: center;
+    background:
+      radial-gradient(ellipse at 50% 78%, rgba(74, 28, 36, .1), transparent 48%),
+      linear-gradient(180deg, #F6F0E6, #E4D2B8 72%, #CDB48E);
+  }
+  .shoe-frame[data-ground="ink"] {
+    background:
+      radial-gradient(ellipse at 50% 80%, rgba(230, 210, 163, .16), transparent 46%),
+      #3A1419;
+  }
+  .shoe-frame .jutti-svg { width: auto; height: min(76%, 520px); filter: drop-shadow(0 26px 18px rgba(40, 16, 12, .28)); }
+  .panel-shoe { display: flex; flex-direction: column; }
+  .panel-shoe .shoe-wrap { flex: 1; display: grid; place-items: center; padding: calc(var(--header) + 28px) 8vw 0; }
+  .panel-shoe .jutti-svg { width: auto; height: min(54vh, 480px); filter: drop-shadow(0 28px 22px rgba(0, 0, 0, .35)); }
+  .panel-shoe .panel-copy { height: auto; padding-top: 1.5vh; }
+  .panel-ink { background: #2A1016; }
+  .panel-indigo { background: #0E2228; }
+  .panel-bridal { background: radial-gradient(circle at 72% 28%, #6A4320, #2A1412 58%); }
+  .panel-sole { background: #24140F; }
+  .panel-day { background: #E7D3B4; color: var(--ink); }
+  .panel-day .panel-copy p { color: var(--muted); }
+  .panel-day .panel-copy .num { color: var(--clay); }
+  .panel-day .btn-light { background: var(--maroon-deep); color: var(--sand); }
+  .shoe-fill {
+    display: grid; place-items: center;
+    background: linear-gradient(165deg, #F7F1E6, #E7D5BC);
+  }
+  .shoe-fill.ground-ink, .dlg-media.ground-ink { background: linear-gradient(165deg, #4A1C24, #2A1216); }
+  .card-visual .shoe-fill .jutti-svg { position: relative; width: auto; height: 82%; }
+  .dlg-media.shoe { display: grid; place-items: center; background: linear-gradient(165deg, #F7F1E6, #E7D5BC); }
+  .dlg-media.shoe .jutti-svg { position: relative; width: auto; height: min(78%, 460px); }
+
+  /* Marquee + trust */
+  .marquee { overflow: hidden; border-block: 1px solid var(--line); background: rgba(255,255,255,.35); }
+  .marquee-track { display: flex; width: max-content; animation: ticker 36s linear infinite; padding: .85rem 0; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee span { padding: 0 1.1rem; letter-spacing: .18em; text-transform: uppercase; font-size: .75rem; color: var(--maroon-deep); }
+  .marquee .deva { font-family: var(--deva); letter-spacing: 0; text-transform: none; font-size: 1.05rem; color: var(--clay); }
+  .trust { padding: 1.4rem 0; }
+  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .trust article { display: flex; gap: .75rem; align-items: flex-start; padding-right: .5rem; }
+  .trust svg { width: 22px; height: 22px; flex: none; stroke: var(--maroon); fill: none; stroke-width: 1.5; margin-top: .15rem; }
+  .trust h2 { font-family: var(--sans); font-size: .95rem; letter-spacing: 0; line-height: 1.3; font-weight: 550; }
+  .trust p { color: var(--muted); font-size: .82rem; }
+
+  /* Lens */
+  .lens-section { padding: 4.5rem 0 2rem; }
+  .section-head { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 1.4rem; }
+  .section-head h2, .block-title { font-size: clamp(2.4rem, 4vw, 3.8rem); max-width: 16ch; }
+  .section-head p { max-width: 28rem; color: var(--muted); }
+  .lens-stage {
+    position: relative; height: min(72vh, 680px); border-radius: 28px; overflow: hidden;
+    background: #C4A882; cursor: crosshair;
+  }
+  .lens-stage > img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+  .lens {
+    position: absolute; left: 0; top: 0; width: 210px; height: 210px; border-radius: 50%;
+    overflow: hidden; border: 1.5px solid var(--gold-2); box-shadow: 0 16px 40px rgba(20,10,10,.28);
+    pointer-events: none; opacity: 0; z-index: 2;
+  }
+  .lens.is-on { opacity: 1; }
+  .lens-inner { position: absolute; left: 0; top: 0; }
+  .lens-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+  .lens-hint {
+    position: absolute; left: 18px; bottom: 18px; z-index: 1;
+    background: rgba(36, 24, 22, .72); color: var(--sand);
+    border-radius: 999px; padding: .45rem .8rem; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  }
+
+  /* Horizontal guilds */
+  .h-scroll { position: relative; }
+  .h-scroll-sticky { position: relative; }
+  .h-scroll-track { display: flex; }
+  .panel { position: relative; overflow: hidden; color: var(--sand); min-height: 100%; }
+  .panel-shade { position: absolute; inset: auto 0 0 0; height: 58%; background: linear-gradient(transparent, rgba(20, 8, 10, .78)); pointer-events: none; }
+  .panel img.cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .panel-copy { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 12vh 7vw 8vh; max-width: 680px; }
+  .panel-copy .num { letter-spacing: .2em; font-size: .75rem; text-transform: uppercase; color: var(--gold-2); }
+  .panel-copy h3 { font-size: clamp(2.6rem, 5vw, 4.6rem); margin: .35rem 0 .7rem; color: inherit; }
+  .panel-copy p { max-width: 36rem; color: rgba(246, 240, 230, .86); }
+  .panel-copy .btn { margin-top: 1.3rem; align-self: flex-start; }
+  .panel-light { color: var(--ink); background: #E7EEF2; }
+  .panel-light .panel-copy p { color: var(--muted); }
+  .panel-light .panel-copy .num { color: var(--clay); }
+  .panel-pottery { display: flex; flex-direction: column; }
+  .plate-wrap { flex: 1; display: grid; place-items: center; padding-top: 14vh; }
+  .plate-wrap svg { width: min(42vh, 380px); height: auto; filter: drop-shadow(0 22px 30px rgba(20, 40, 70, .18)); }
+  .panel-pottery .panel-copy { height: auto; }
+  .guild-progress {
+    position: absolute; top: calc(var(--header) + 16px); right: 28px; z-index: 3;
+    background: rgba(28, 16, 18, .78); color: var(--sand); border-radius: 999px;
+    padding: .4rem .85rem; letter-spacing: .16em; font-size: .72rem;
+  }
+
+  /* Razai */
+  .razai { padding: 6rem 0; }
+  .razai-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3.5rem; align-items: center; }
+  .cloth-frame {
+    height: clamp(460px, 68vh, 680px); border-radius: 240px 240px 28px 28px;
+    position: relative; box-shadow: var(--shadow);
+  }
+  .seal {
+    position: absolute; top: 22px; right: 22px; width: 92px; height: 92px; border-radius: 50%;
+    display: grid; place-items: center; text-align: center;
+    background: radial-gradient(circle at 35% 30%, #F3E6C4, #C6A15A 45%, #8C6232);
+    color: var(--maroon-deep); transform: rotate(8deg);
+    box-shadow: 0 10px 24px rgba(80, 40, 20, .25);
+    font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; line-height: 1.25; padding: .4rem;
+  }
+  .swatches { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+  .swatches button {
+    border: 1px solid var(--line); background: white; border-radius: 999px;
+    min-height: 40px; padding: 0 .9rem; display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .swatches button[aria-pressed="true"] { border-color: var(--maroon); color: var(--maroon); }
+  .dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+  .dot-madder { background: #6E2430; }
+  .dot-indigo { background: #16343C; }
+  .price { font-family: var(--serif); font-size: 2rem; letter-spacing: -.03em; }
+  .price s { font-family: var(--sans); font-size: .95rem; color: var(--muted); margin-left: .55rem; letter-spacing: 0; }
+  .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; margin: 1.2rem 0; }
+  .spec-grid div { background: white; border-radius: 16px; padding: .85rem 1rem; border: 1px solid var(--line); }
+  .spec-grid span { display: block; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--clay); }
+  .spec-grid strong { font-weight: 550; font-size: .95rem; }
+  .razai .btn-row { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: .4rem; }
+  .quiet { color: var(--muted); font-size: .85rem; margin-top: .8rem; }
+
+  /* Shop */
+  .shop { padding: 1rem 0 5rem; }
+  .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 1.6rem; }
+  .card { display: flex; flex-direction: column; gap: .85rem; }
+  .card-hit { display: block; width: 100%; text-align: left; border: 0; padding: 0; background: transparent; color: inherit; }
+  .card-visual { aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; position: relative; background: var(--sand-2); }
+  .card-visual .fill, .card-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.16,1,.3,1); }
+  .card:hover .fill, .card:hover .card-visual img { transform: scale(1.06); }
+  .card-cat { display: block; margin-top: .75rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--clay); }
+  .card-name { display: block; font-family: var(--serif); font-size: 1.35rem; line-height: 1.15; letter-spacing: -.02em; margin-top: .15rem; }
+  .card-row { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
+  .card-price { font-weight: 550; margin-right: auto; }
+  .card-price s { color: var(--muted); font-weight: 400; margin-left: .35rem; font-size: .82rem; }
+
+  /* Process */
+  .process { padding: 5rem 0; background: white; }
+  .steps { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 2.2rem; }
+  .steps-line {
+    position: absolute; top: 15px; left: 0; right: 0; height: 1px; background: var(--maroon);
+    transform: scaleX(0); transform-origin: left; transition: transform 1.3s cubic-bezier(.16,1,.3,1);
+  }
+  .steps.in .steps-line { transform: scaleX(1); }
+  .steps article { position: relative; padding-top: 2rem; }
+  .steps .num {
+    width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--sand); border: 1px solid var(--maroon); font-size: .75rem; position: relative; z-index: 1;
+  }
+  .steps h3 { font-size: 1.7rem; margin: .8rem 0 .4rem; }
+  .steps p { color: var(--muted); font-size: .92rem; }
+
+  /* Wholesale */
+  .wholesale { padding: 5rem 0 6rem; }
+  .split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 1rem; }
+  .split-copy, .split-form { border-radius: 28px; padding: clamp(1.5rem, 3vw, 2.6rem); }
+  .split-copy { background: var(--maroon-deep); color: var(--sand); position: relative; overflow: hidden; min-height: 460px; }
+  .split-copy h2 { font-size: clamp(2.3rem, 4vw, 3.5rem); color: var(--sand); max-width: 14ch; }
+  .split-copy .eyebrow { color: var(--gold-2); }
+  .split-copy p { color: rgba(246, 240, 230, .82); margin-top: 1rem; max-width: 36rem; }
+  .ticks { margin: 1.4rem 0 0; padding: 0; list-style: none; display: grid; gap: .65rem; }
+  .ticks li { display: flex; gap: .6rem; align-items: flex-start; }
+  .ticks svg { width: 18px; height: 18px; flex: none; stroke: var(--gold-2); fill: none; stroke-width: 1.7; margin-top: .15rem; }
+  .split-form { background: var(--paper); border: 1px solid var(--line); }
+  label { display: block; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; margin: .9rem 0 .2rem; color: var(--muted); }
+  input, textarea, select {
+    width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line);
+    padding: .7rem 0; border-radius: 0; outline: none;
+  }
+  textarea { min-height: 90px; resize: vertical; }
+  input:focus, textarea:focus, select:focus { border-bottom-color: var(--maroon); }
+  .split-form .btn { margin-top: 1.2rem; }
+  .thanks { padding: 1rem 0; }
+  .thanks h3 { font-size: 2.4rem; margin-bottom: .6rem; }
+
+  footer { background: #241816; color: rgba(246, 240, 230, .78); padding: 3.5rem 0 1.5rem; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr .8fr .8fr 1fr; gap: 2rem; }
+  footer h2 { font-family: var(--sans); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-2); margin-bottom: .8rem; font-weight: 500; }
+  footer a { display: block; padding: .22rem 0; }
+  footer a:hover { color: white; }
+  .foot-brand .logo-en, .foot-brand .logo-deva { color: var(--sand); }
+  .foot-brand .logo-en em { color: var(--gold-2); }
+  .foot-brand p { margin-top: .8rem; max-width: 28rem; font-size: .92rem; }
+  .legal { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: .8rem; }
+
+  /* Overlays */
+  .search-panel {
+    position: fixed; left: 0; right: 0; top: var(--header); bottom: 0; z-index: 65;
+    background: rgba(246, 240, 230, .96); backdrop-filter: blur(16px);
+    opacity: 0; pointer-events: none; transform: translateY(-8px); transition: .35s;
+    overflow: auto; padding: 1.5rem 0 3rem;
+  }
+  .search-panel.is-open { opacity: 1; pointer-events: auto; transform: none; }
+  .search-panel input[type="search"] { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); border-bottom-width: 1px; }
+  .search-hits { display: grid; gap: .6rem; margin-top: 1.2rem; }
+  .search-hits button {
+    display: flex; justify-content: space-between; gap: 1rem; width: 100%; text-align: left;
+    background: white; border: 1px solid var(--line); border-radius: 16px; padding: .9rem 1rem;
+  }
+  .backdrop { position: fixed; inset: 0; background: rgba(28, 16, 18, .42); opacity: 0; pointer-events: none; transition: opacity .4s; z-index: 72; }
+  .backdrop.is-open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%);
+    background: var(--paper); z-index: 73; transform: translateX(104%);
+    transition: transform .55s cubic-bezier(.16,1,.3,1);
+    display: flex; flex-direction: column; box-shadow: var(--shadow);
+  }
+  .drawer.is-open { transform: none; }
+  .drawer header, .drawer footer { padding: 1.1rem 1.2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .drawer header { border-bottom: 1px solid var(--line); }
+  .drawer header h2 { font-size: 1.8rem; }
+  .drawer footer { border-top: 1px solid var(--line); display: block; }
+  .drawer-body { padding: 1rem 1.2rem; overflow: auto; flex: 1; }
+  .cart-line { display: grid; grid-template-columns: 72px 1fr; gap: .8rem; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+  .cart-line .thumb { width: 72px; height: 90px; border-radius: 10px; overflow: hidden; position: relative; }
+  .cart-line h3 { font-size: 1.2rem; }
+  .qty { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 99px; margin-top: .4rem; }
+  .qty button { width: 28px; height: 28px; border: 0; background: transparent; }
+  .saved-row { display: flex; justify-content: space-between; gap: .6rem; align-items: center; padding: .45rem 0; }
+  .empty { color: var(--muted); padding: 1rem 0; }
+  .total-row { display: flex; justify-content: space-between; font-size: 1.05rem; margin-bottom: .8rem; }
+  .fine { color: var(--muted); font-size: .78rem; margin-top: .6rem; }
+  dialog { border: 0; padding: 0; background: transparent; max-width: calc(100vw - 24px); }
+  dialog::backdrop { background: rgba(28, 16, 18, .5); }
+  .dlg-card { width: min(920px, calc(100vw - 24px)); display: grid; grid-template-columns: 1.05fr .95fr; background: var(--paper); border-radius: 24px; overflow: hidden; position: relative; }
+  .dlg-media { min-height: 420px; position: relative; background: var(--sand-2); }
+  .dlg-media img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+  .dlg-media.plate { display: grid; place-items: center; background: #E7EEF2; }
+  .dlg-media.plate svg { width: min(68%, 300px); position: relative; }
+  .dlg-copy { padding: 1.6rem 1.4rem 1.4rem; }
+  .dlg-copy h3 { font-size: 2.3rem; margin: .3rem 0 .7rem; }
+  .dlg-close { position: absolute; top: 10px; right: 10px; background: white; z-index: 2; }
+  .toast {
+    position: fixed; bottom: 22px; left: 50%; transform: translate(-50%, 12px);
+    background: var(--ink); color: var(--sand); padding: .7rem 1rem; border-radius: 999px;
+    opacity: 0; pointer-events: none; transition: .35s; z-index: 90; font-size: .9rem;
+  }
+  .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+  .cursor {
+    position: fixed; left: 0; top: 0; z-index: 94; width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(114, 47, 55, .65); pointer-events: none;
+    display: none; place-items: center; color: var(--sand);
+    transition: width .25s, height .25s, background .25s, border-color .25s;
+  }
+  .cursor span { font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; opacity: 0; }
+  .cursor.has-label { width: 84px; height: 84px; background: var(--maroon); border-color: var(--maroon); }
+  .cursor.has-label span { opacity: 1; }
+  body.lock { overflow: hidden; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (min-width: 900px) {
+    .h-scroll { height: 400vh; }
+    .h-scroll-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+    .h-scroll-track { height: 100%; }
+    .panel { height: 100%; }
+  }
+  @media (max-width: 1100px) {
+    .nav-links { gap: .8rem; letter-spacing: .08em; font-size: .68rem; }
+    .logo-en { font-size: 1.15rem; }
+  }
+  @media (max-width: 980px) {
+    .nav-links, .nav-cta, .bag-total { display: none; }
+    .menu-btn { display: block; }
+    .hero-grid, .razai-grid, .split, .foot-grid { grid-template-columns: 1fr; align-items: stretch; }
+    .hero-visual, .hero-frame { width: 100%; }
+    .hero { min-height: 0; }
+    .shop-grid { grid-template-columns: 1fr 1fr; }
+    .trust-grid, .steps { grid-template-columns: 1fr 1fr; }
+    .section-head { flex-direction: column; align-items: start; }
+    h1 { max-width: none; }
+  }
+  @media (max-width: 720px) {
+    .announce a, .announce [aria-hidden="true"] { display: none; }
+  }
+  @media (max-width: 899px) {
+    .h-scroll-sticky {
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      scroll-padding-inline: 6vw; padding-bottom: .4rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .panel {
+      flex: 0 0 84vw; width: 84vw; height: auto; min-height: 0;
+      scroll-snap-align: center;
+    }
+    .panel-shoe .shoe-wrap { padding: 1.35rem 1.25rem 0; }
+    .panel-shoe .jutti-svg { height: 230px; max-width: 78%; }
+    .panel-copy { padding: .4rem 1.25rem 1.35rem; max-width: none; }
+    .panel-copy h3 { font-size: clamp(2.15rem, 8vw, 3.1rem); }
+    .guild-progress { display: none; }
+    .announce .full { display: none; }
+    .lens-hint { display: none; }
+    .lens { display: none; }
+    .lens-stage { height: 52vh; min-height: 240px; border-radius: 20px; }
+  }
+  @media (min-width: 900px) { .announce .short { display: none; } }
+  @media (max-width: 640px) {
+    .wrap { width: min(1180px, calc(100% - 32px)); }
+    .shop-grid, .trust-grid, .steps, .spec-grid { grid-template-columns: 1fr; }
+    .dlg-card { grid-template-columns: 1fr; max-height: calc(100dvh - 24px); overflow: auto; }
+    .dlg-media { min-height: 280px; }
+    .dlg-copy { padding: 1.2rem 1.1rem 1.2rem; }
+    .dlg-copy h3 { font-size: 1.85rem; }
+    h1 { font-size: clamp(2.45rem, 11vw, 3.3rem); }
+    .hero { padding: calc(var(--header) + 8px) 0 2.2rem; }
+    .hero-lead { margin-top: .9rem; font-size: 1rem; }
+    .hero-actions { margin-top: 1.05rem; }
+    .hero-facts { margin-top: 1rem; gap: .85rem 1.1rem; }
+    .hero-frame { height: min(124vw, 560px); min-height: 420px; border-radius: 180px 180px 20px 20px; }
+    .pair { width: min(86%, 320px); }
+    .shoe-frame { height: auto; min-height: 440px; border-radius: 170px 170px 20px 20px; }
+    .shoe-frame .jutti-svg { height: min(68%, 360px); }
+    .block-title, .section-head h2 { font-size: clamp(2.05rem, 9vw, 3.1rem); }
+    .price { font-size: 1.7rem; }
+    .toast { max-width: calc(100% - 32px); text-align: center; }
+  }
+  @media (max-width: 380px) {
+    .logo svg { width: 28px; height: 28px; }
+    .logo-deva { font-size: .78rem; }
+    .logo-en { font-size: 1.02rem; }
+    .icon-btn, .menu-btn { width: 34px; height: 34px; }
+    .nav-tools { gap: 0; }
+  }
+  @media (pointer: fine) { .cursor { display: grid; } }
+
+  @keyframes rise { to { transform: translateY(0); } }
+  @keyframes fadeup { to { opacity: 1; transform: none; } }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+  @keyframes clothMove { to { background-position: 0 34px, 34px 0, 120px 140px; } }
+  @keyframes ken { to { transform: scale(1.08); } }
+  @keyframes pop { 50% { transform: scale(1.28); } }
+  @keyframes shoeFloat {
+    0%, 100% { transform: rotate(9deg) translate(-4px, 0); }
+    50% { transform: rotate(6deg) translate(-4px, -12px); }
+  }
+  @keyframes shoeFloatBack {
+    0%, 100% { transform: rotate(-8deg) translate(10px, 16px); }
+    50% { transform: rotate(-6deg) translate(10px, 6px); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .pair .front { animation: shoeFloat 6.5s ease-in-out infinite; }
+    .pair .back { animation: shoeFloatBack 7.5s ease-in-out infinite; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .loader { display: none; }
+    html.js:not(.is-open) .word span, .word span { transform: none; animation: none; }
+    .rise-in, .reveal { opacity: 1; transform: none; }
+    .marquee-track, .is-live, .gate, .pair .jutti-svg { animation: none; transition: none; }
+    .pair .front { transform: rotate(9deg) translate(-4px, 0); }
+    .pair .back { transform: rotate(-8deg) translate(10px, 16px); }
+    .steps-line { transform: none; }
+    .cursor { display: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="progress" id="progress"></div>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="gate gate-l"></div>
+  <div class="gate gate-r"></div>
+  <div class="loader-mark">
+    <svg viewBox="0 0 64 64" width="54" height="54" aria-hidden="true">
+      <path d="M10 54 V28 C10 12 54 12 54 28 V54" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M32 54 V24" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="32" cy="22" r="2.2" fill="currentColor"/>
+    </svg>
+    <p class="deva">राजस्थली</p>
+    <p class="en">Exports</p>
+  </div>
+</div>
+
+<header class="site-header" id="header">
+  <div class="announce">
+    <span class="full">Men's mojaris, khussas, and nagras — packed in pairs</span>
+    <span class="short">Men's footwear from Jaipur</span>
+    <span aria-hidden="true">·</span>
+    <a href="mailto:export@rajasthaliexports.com">export@rajasthaliexports.com</a>
+  </div>
+  <div class="nav-bar">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top" aria-label="Rajasthali Exports, home">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 54 V28 C10 12 54 12 54 28 V54" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M32 54 V24" stroke="currentColor" stroke-width="1.5"/><circle cx="32" cy="22" r="2.4" fill="currentColor"/></svg>
+        <span>
+          <span class="logo-deva">राजस्थली</span>
+          <span class="logo-en">Rajasthali <em>Exports</em></span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#mojari">The mojari</a>
+        <a href="#guilds">The lasts</a>
+        <a href="#atelier">Atelier</a>
+        <a href="#shop">Shop</a>
+        <a href="#wholesale">Wholesale</a>
+      </nav>
+      <div class="nav-tools">
+        <button class="icon-btn" id="open-search" type="button" aria-label="Search the collection">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l5 5"/></svg>
+        </button>
+        <button class="icon-btn" id="open-wish" type="button" aria-label="Saved pieces">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg>
+          <span class="badge" id="wish-count" hidden>0</span>
+        </button>
+        <button class="icon-btn" id="open-cart" type="button" aria-label="Open bag">
+          <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V7a3 3 0 0 1 6 0v1"/></svg>
+          <span class="badge" id="cart-count" hidden>0</span>
+        </button>
+        <span class="bag-total" id="bag-total" hidden></span>
+        <a class="btn btn-line nav-cta" href="#wholesale">Get in touch</a>
+        <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="nav-overlay" id="nav-overlay" inert>
+  <a href="#mojari">The mojari</a>
+  <a href="#guilds">The lasts</a>
+  <a href="#atelier">Atelier</a>
+  <a href="#shop">Shop</a>
+  <a href="#wholesale">Wholesale</a>
+</div>
+
+<main id="content">
+  <section class="hero" id="top">
+    <svg class="jaali" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="jaali" width="56" height="56" patternUnits="userSpaceOnUse">
+          <path d="M28 4c8 10 8 16 0 22c-8-6-8-12 0-22zM28 28c8 10 8 16 0 22c-8-6-8-12 0-22zM4 28c10-8 16-8 22 0c-6 8-12 8-22 0zM28 28c10-8 16-8 22 0c-6 8-12 8-22 0z" fill="none" stroke="#4A1C24" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="800" height="800" fill="url(#jaali)"/>
+    </svg>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow rise-in" style="--d:.12s">Jaipur · men's footwear</p>
+        <h1>
+          <span class="line">
+            <span class="word"><span style="--d:.04s">A</span></span>
+            <span class="word"><span style="--d:.1s">Jaipur</span></span>
+            <span class="word"><span style="--d:.16s">mojari.</span></span>
+          </span>
+          <em class="line">
+            <span class="word"><span style="--d:.28s">Cut</span></span>
+            <span class="word"><span style="--d:.34s">for</span></span>
+            <span class="word"><span style="--d:.4s">men.</span></span>
+          </em>
+        </h1>
+        <p class="hero-lead rise-in" style="--d:.48s">Leather shoes from a Jaipur men's last — mojaris, khussas, and nagras — for one pair, or a size run for a shop.</p>
+        <div class="hero-actions rise-in" style="--d:.58s">
+          <a class="btn btn-fill" data-magnet href="#mojari">See the pair</a>
+          <a class="btn btn-line" data-magnet href="#wholesale">Talk to the trade desk</a>
+        </div>
+        <div class="hero-facts rise-in" style="--d:.7s">
+          <div><strong>Men's</strong><span>last, stitched by hand</span></div>
+          <div><strong>Jaipur</strong><span>packed in pairs</span></div>
+          <div><strong>Trade</strong><span>size runs on a sample</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <figure class="hero-frame shoe-stage" data-cursor="Look">
+          <div class="pair">
+            <svg class="jutti-svg jutti-tan back" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg>
+            <svg class="jutti-svg jutti-madder front" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg>
+          </div>
+          <figcaption class="chip">Leather study</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Men's mojari</span><span class="deva">राजस्थली</span><span>Khussa</span><span>Nagra</span><span>Hand embroidery</span><span>Leather sole</span><span>Packed in pairs</span>
+      <span>Men's mojari</span><span class="deva">राजस्थली</span><span>Khussa</span><span>Nagra</span><span>Hand embroidery</span><span>Leather sole</span><span>Packed in pairs</span>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap trust-grid">
+      <article>
+        <svg viewBox="0 0 24 24"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="18" cy="17" r="1.6"/></svg>
+        <div><h2>Insured dispatch</h2><p>Across India, packed before it leaves Jaipur.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>
+        <div><h2>Made to the foot</h2><p>Leather, thread, and size on request.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24"><path d="M4 18V6h10l6 6v6z"/><path d="M14 6v6h6"/></svg>
+        <div><h2>Trade desk</h2><p>Shops, weddings, and export cartons.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+        <div><h2>A real timeline</h2><p>Sampling first. Production when you sign off.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="razai" id="mojari">
+    <div class="wrap razai-grid">
+      <div class="shoe-frame" id="mojari-stage">
+        <svg class="jutti-svg jutti-madder" id="mojari-leather" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg>
+        <div class="seal">Jaipur<br>leather study</div>
+      </div>
+      <div>
+        <p class="eyebrow">The pair</p>
+        <h2 class="block-title">One last. Four leathers.</h2>
+        <p class="quiet" style="margin-top:1rem">A Jaipur men's mojari: a broader last, vegetable-tanned upper, a gold buta, a leather sole stitched by hand. Switch the hide the way a buyer would ask for a colour.</p>
+        <div class="swatches" role="group" aria-label="Mojari leather">
+          <button type="button" data-swatch="jutti-madder" data-ground="sand" data-label="Maroon" aria-pressed="true"><i class="dot dot-madder"></i> Maroon</button>
+          <button type="button" data-swatch="jutti-black" data-ground="sand" data-label="Black" aria-pressed="false"><i class="dot" style="background:#241C1A"></i> Black</button>
+          <button type="button" data-swatch="jutti-tan" data-ground="sand" data-label="Tan" aria-pressed="false"><i class="dot" style="background:#C4895A"></i> Tan</button>
+          <button type="button" data-swatch="jutti-gold" data-ground="ink" data-label="Gold" aria-pressed="false"><i class="dot" style="background:#E6D2A3;border:1px solid #8C6232"></i> Gold</button>
+        </div>
+        <div class="spec-grid">
+          <div><span>Last</span><strong>Men's mojari</strong></div>
+          <div><span>Upper</span><strong>Vegetable-tanned</strong></div>
+          <div><span>Work</span><strong>Hand embroidered</strong></div>
+          <div><span>Leather</span><strong id="colour-spec">Maroon</strong></div>
+        </div>
+        <p class="price">₹3,450 <s>₹4,200</s></p>
+        <div class="btn-row">
+          <button class="btn btn-fill" type="button" data-add="mojari" data-magnet>Add the pair</button>
+          <button class="btn btn-line" type="button" data-prefill="Size request for the maroon men's mojari.">Request a size</button>
+        </div>
+        <p class="quiet">Sample price for this presentation. The drawing stands in for a studio photograph of the pair.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="h-scroll" id="guilds" aria-label="Four footwear lasts">
+    <div class="h-scroll-sticky" id="guild-sticky">
+      <div class="guild-progress"><span id="guild-index">01</span> / 04</div>
+      <div class="h-scroll-track" id="guild-track">
+        <article class="panel panel-shoe panel-ink">
+          <div class="shoe-wrap"><svg class="jutti-svg jutti-rose" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg></div>
+          <div class="panel-copy">
+            <span class="num">01 — The men's last</span>
+            <h3>The mojari</h3>
+            <p>A broader toe, a gold buta, a sole stitched through the hide. This is the pair the house leads with.</p>
+            <a class="btn btn-light" href="#mojari">See the colourways</a>
+          </div>
+        </article>
+        <article class="panel panel-shoe panel-indigo">
+          <div class="shoe-wrap"><svg class="jutti-svg jutti-tan" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg></div>
+          <div class="panel-copy">
+            <span class="num">02 — A curled toe</span>
+            <h3>The khussa</h3>
+            <p>Tan hide, the toe turned up, the same hand stitch. A men's pair, ordered as a left and a right together.</p>
+            <a class="btn btn-light" href="#shop">View the khussa</a>
+          </div>
+        </article>
+        <article class="panel panel-shoe panel-bridal">
+          <div class="shoe-wrap"><svg class="jutti-svg jutti-gold" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg></div>
+          <div class="panel-copy">
+            <span class="num">03 — With a sherwani</span>
+            <h3>The nagra</h3>
+            <p>Heavier gold thread on a deep ground. The men's wedding shoe, cut for a ceremony rather than the street.</p>
+            <a class="btn btn-light" href="#shop">View the nagra</a>
+          </div>
+        </article>
+        <article class="panel panel-shoe panel-day">
+          <div class="shoe-wrap"><svg class="jutti-svg jutti-black" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg></div>
+          <div class="panel-copy">
+            <span class="num">04 — The quiet pair</span>
+            <h3>Black leather</h3>
+            <p>The same men's last, in black hide, with the embroidery kept small. The pair a shop reorders when the wedding season is over.</p>
+            <a class="btn btn-light" href="#shop">View the black pair</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="lens-section" id="city">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Jaipur, on the vamp</p>
+          <h2>The lattice, up close.</h2>
+        </div>
+        <p>Move across Hawa Mahal. The jali is the geometry that gets redrawn, smaller, in gold thread on the shoe.</p>
+      </div>
+      <div class="lens-stage reveal" id="lens-stage" data-cursor="Closer">
+        <img id="lens-photo" src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=2000&q=75" alt="Hawa Mahal in Jaipur, the pink facade of lattice windows, with riders in the foreground" width="1600" height="1000" decoding="async">
+        <div class="lens" id="lens"><div class="lens-inner" id="lens-inner"><img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=2000&q=75" alt=""></div></div>
+        <p class="lens-hint">Move across the facade</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="shop" id="shop">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">The edit</p>
+          <h2>Pairs to put in the bag.</h2>
+        </div>
+        <p>Four men's pairs a buyer can open, save, and reserve. Nothing here is charged — the shop works before the pairs are photographed.</p>
+      </div>
+      <div class="shop-grid" id="shop-grid"></div>
+    </div>
+  </section>
+
+  <section class="process" id="atelier">
+    <div class="wrap">
+      <p class="eyebrow">The atelier</p>
+      <h2 class="block-title">From hide to a packed pair.</h2>
+      <div class="steps reveal" id="steps">
+        <div class="steps-line"></div>
+        <article><div class="num">01</div><h3>Select the hide</h3><p>Vegetable-tanned leather in the colour of the order. The pair is cut from one hide, so the two shoes match.</p></article>
+        <article><div class="num">02</div><h3>Last and cut</h3><p>The upper is pulled over a men's Jaipur last and cut to the size. This is the slow part, and it should stay slow.</p></article>
+        <article><div class="num">03</div><h3>Embroider</h3><p>Gold thread on the mojari and the nagra. The black pair leaves this step quiet.</p></article>
+        <article><div class="num">04</div><h3>Sole and dispatch</h3><p>The leather sole is stitched on, the pair is checked, and it leaves Jaipur insured, with a packing list for trade.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wholesale" id="wholesale">
+    <div class="wrap split">
+      <div class="split-copy">
+        <p class="eyebrow">Wholesale</p>
+        <h2>For shops, weddings, and export.</h2>
+        <p>A size run from a sample pair, and a person in Jaipur who answers. Minimums are discussed on the sample, not hidden in a PDF.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Colour match against a hide or a thread</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>A size run, built from one approved pair</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Cartons of pairs, a GST invoice, insured freight</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>One Jaipur contact from sample to dispatch</span></li>
+        </ul>
+      </div>
+      <form class="split-form" id="trade-form">
+        <p class="eyebrow">Write to the desk</p>
+        <h2 class="block-title" style="font-size:2.4rem">Tell us the order.</h2>
+        <div id="form-fields">
+          <label for="name">Name</label>
+          <input id="name" name="name" required autocomplete="name" placeholder="Your name">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@studio.com">
+          <label for="intent">This note is</label>
+          <select id="intent" name="intent">
+            <option>A trade enquiry</option>
+            <option>A single pair</option>
+            <option>A size request</option>
+            <option>Something else</option>
+          </select>
+          <label for="note">The brief</label>
+          <textarea id="note" name="note" placeholder="Pairs, sizes, or a leather you need to match."></textarea>
+          <button class="btn btn-fill" type="submit">Send the note</button>
+          <p class="fine">This demo keeps the note on the page. A live site would deliver it to the atelier.</p>
+        </div>
+        <div class="thanks" id="thanks" hidden>
+          <h3>Received, <span id="thanks-name">there</span>.</h3>
+          <p>In the live shop this would land with the Jaipur desk. Here it simply shows the path a buyer would take.</p>
+          <button class="btn btn-line" type="button" id="another" style="margin-top:1rem">Write another note</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-deva">राजस्थली</span>
+        <span class="logo-en">Rajasthali <em>Exports</em></span>
+        <p>Jaipur men's footwear — mojaris, khussas, and nagras — for one pair at home and for buyers ordering in cartons.</p>
+      </div>
+      <div>
+        <h2>Walk the page</h2>
+        <a href="#mojari">The mojari</a>
+        <a href="#guilds">Four lasts</a>
+        <a href="#city">The city</a>
+        <a href="#shop">Shop</a>
+        <a href="#atelier">Atelier</a>
+      </div>
+      <div>
+        <h2>Desk</h2>
+        <a href="#wholesale">Wholesale</a>
+        <a href="mailto:export@rajasthaliexports.com">Email the atelier</a>
+        <a href="#shop">Reserve a pair</a>
+      </div>
+      <div>
+        <h2>Versions</h2>
+        <a href="../">All versions</a>
+        <a href="../v2/">/v2 The men's last</a>
+        <a href="../v3/">/v3 The shop floor</a>
+        <p style="margin-top:.8rem">Jaipur, Rajasthan</p>
+        <p style="margin-top:.4rem">Shipping, returns, and privacy pages belong in the full build. This page is the design they would sit under.</p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Rajasthali Exports.</span>
+      <span>Design concept for presentation. The palace photograph is Jaipur. Shoe drawings stand in for studio product photography.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="search-panel" id="search-panel" inert>
+  <div class="wrap">
+    <label class="sr" for="q">Search</label>
+    <input id="q" type="search" placeholder="Search the footwear" autocomplete="off">
+    <div class="search-hits" id="search-hits"></div>
+  </div>
+</div>
+
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" inert aria-label="Bag">
+  <header>
+    <h2>Your bag</h2>
+    <button class="icon-btn" id="drawer-close" type="button" aria-label="Close bag">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </header>
+  <div class="drawer-body" id="drawer-body"></div>
+  <footer>
+    <div class="total-row"><span>Total</span><strong id="cart-total">₹0</strong></div>
+    <button class="btn btn-fill" type="button" id="reserve" style="width:100%">Reserve in this demo</button>
+    <p class="fine" id="reserve-note">Nothing is charged or shipped. Reserving shows the last step a buyer would take.</p>
+  </footer>
+</aside>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg-card">
+    <button class="icon-btn dlg-close" id="dlg-close" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="dlg-media" id="dlg-media"></div>
+    <div class="dlg-copy">
+      <p class="eyebrow" id="dlg-cat"></p>
+      <h3 id="dlg-title"></h3>
+      <p id="dlg-note"></p>
+      <p class="price" id="dlg-price" style="margin:.9rem 0"></p>
+      <button class="btn btn-fill" type="button" id="dlg-add">Add to bag</button>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursor-label"></span></div>
+
+<script>
+(function () {
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine = matchMedia("(pointer: fine)").matches;
+  const desktop = matchMedia("(min-width: 900px)");
+  const root = document.documentElement;
+  const inr = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 });
+  const SHOE = `<svg class="jutti-svg" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg>`;
+
+  const products = [
+    { id: "mojari", name: "Maroon men's mojari", cat: "Mojari", price: 3450, was: 4200, leather: "jutti-madder", note: "A men's mojari in maroon leather, with a gold buta. The picture is a leather study — a studio photograph of the pair replaces it." },
+    { id: "khussa", name: "Tan leather khussa", cat: "Khussa", price: 2950, leather: "jutti-tan", note: "A men's khussa in vegetable-tanned hide, with the toe turned up and a stitched leather sole." },
+    { id: "nagra", name: "Gold wedding nagra", cat: "Nagra", price: 6400, leather: "jutti-gold", note: "The men's wedding shoe: heavier gold thread on a deep ground, worn with a sherwani. A drawing, until the real pair is photographed." },
+    { id: "black", name: "Black leather mojari", cat: "Mojari", price: 3200, leather: "jutti-black", note: "The same men's last in black hide, with the embroidery kept small. The pair a shop reorders outside wedding season." }
+  ];
+  const byId = Object.fromEntries(products.map((p) => [p.id, p]));
+  const cart = new Map();
+  const wish = new Set();
+
+  const header = document.getElementById("header");
+  const menu = document.getElementById("nav-overlay");
+  const menuBtn = document.getElementById("menu-btn");
+  const drawer = document.getElementById("drawer");
+  const backdrop = document.getElementById("backdrop");
+  const search = document.getElementById("search-panel");
+  const q = document.getElementById("q");
+  const dlg = document.getElementById("dlg");
+  const guildSection = document.getElementById("guilds");
+  const guildSticky = document.getElementById("guild-sticky");
+  const guildTrack = document.getElementById("guild-track");
+  const guildIndex = document.getElementById("guild-index");
+  const panels = [...guildTrack.children];
+  let lastFocus = null;
+
+  function el(tag, cls, text) {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function shoeNode(leather) {
+    const t = document.createElement("template");
+    t.innerHTML = SHOE;
+    const n = t.content.firstElementChild;
+    n.classList.add(leather || "jutti-madder");
+    return n;
+  }
+  function fillNode(p) {
+    const ink = p.leather === "jutti-gold" ? " ground-ink" : "";
+    const fill = el("div", "fill shoe-fill " + (p.leather || "jutti-madder") + ink);
+    fill.append(shoeNode(p.leather));
+    return fill;
+  }
+
+  function renderShop() {
+    const grid = document.getElementById("shop-grid");
+    grid.replaceChildren();
+    products.forEach((p) => {
+      const card = el("article", "card");
+      const hit = el("button", "card-hit");
+      hit.type = "button";
+      hit.dataset.open = p.id;
+      hit.dataset.cursor = "View";
+      const visual = el("div", "card-visual");
+      visual.append(fillNode(p));
+      hit.append(visual, el("span", "card-cat", p.cat), el("span", "card-name", p.name));
+      const row = el("div", "card-row");
+      const price = el("p", "card-price", inr.format(p.price));
+      if (p.was) price.append(el("s", null, inr.format(p.was)));
+      const save = el("button", "icon-btn");
+      save.type = "button";
+      save.dataset.save = p.id;
+      save.setAttribute("aria-label", "Save " + p.name);
+      save.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></svg>';
+      const add = el("button", "btn btn-fill btn-sm");
+      add.type = "button";
+      add.dataset.add = p.id;
+      add.textContent = "Add";
+      row.append(price, save, add);
+      card.append(hit, row);
+      grid.append(card);
+    });
+    syncSave();
+  }
+
+  function moneyInBag() {
+    let n = 0;
+    cart.forEach((qty, id) => { n += qty * byId[id].price; });
+    return n;
+  }
+  function syncCounts() {
+    const count = [...cart.values()].reduce((a, b) => a + b, 0);
+    const badge = document.getElementById("cart-count");
+    const total = document.getElementById("bag-total");
+    badge.hidden = count === 0;
+    badge.textContent = String(count);
+    total.hidden = count === 0;
+    total.textContent = inr.format(moneyInBag());
+    document.getElementById("cart-total").textContent = inr.format(moneyInBag());
+    badge.classList.remove("pop");
+    void badge.offsetWidth;
+    if (count) badge.classList.add("pop");
+  }
+  function syncSave() {
+    document.querySelectorAll("[data-save]").forEach((btn) => {
+      const on = wish.has(btn.dataset.save);
+      btn.classList.toggle("is-saved", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    const badge = document.getElementById("wish-count");
+    badge.hidden = wish.size === 0;
+    badge.textContent = String(wish.size);
+  }
+  function renderCart() {
+    const body = document.getElementById("drawer-body");
+    body.replaceChildren();
+    if (wish.size) {
+      body.append(el("p", "eyebrow", "Saved"));
+      wish.forEach((id) => {
+        const p = byId[id];
+        const row = el("div", "saved-row");
+        row.append(el("span", null, p.name));
+        const add = el("button", "btn btn-line btn-sm");
+        add.type = "button";
+        add.dataset.add = id;
+        add.textContent = "Add";
+        row.append(add);
+        body.append(row);
+      });
+    }
+    body.append(el("p", "eyebrow", "In the bag"));
+    if (!cart.size) {
+      body.append(el("p", "empty", "The bag is empty. The footwear is just above."));
+    }
+    cart.forEach((qty, id) => {
+      const p = byId[id];
+      const line = el("div", "cart-line");
+      const thumb = el("div", "thumb");
+      thumb.append(fillNode(p));
+      const info = el("div");
+      info.append(el("h3", null, p.name), el("p", null, inr.format(p.price)));
+      const qtyBox = el("div", "qty");
+      const minus = el("button", null, "–");
+      minus.type = "button";
+      minus.dataset.qty = "-1";
+      minus.dataset.id = id;
+      minus.setAttribute("aria-label", "Decrease quantity");
+      const plus = el("button", null, "+");
+      plus.type = "button";
+      plus.dataset.qty = "1";
+      plus.dataset.id = id;
+      plus.setAttribute("aria-label", "Increase quantity");
+      qtyBox.append(minus, el("span", null, String(qty)), plus);
+      const remove = el("button", "btn btn-line btn-sm");
+      remove.type = "button";
+      remove.dataset.remove = id;
+      remove.textContent = "Remove";
+      remove.style.marginLeft = ".5rem";
+      info.append(qtyBox, remove);
+      line.append(thumb, info);
+      body.append(line);
+    });
+    syncCounts();
+  }
+  function addToCart(id, btn) {
+    if (!byId[id]) return;
+    cart.set(id, (cart.get(id) || 0) + 1);
+    renderCart();
+    toast(byId[id].name + " added");
+    if (btn && btn.dataset.add) {
+      const prev = btn.textContent;
+      btn.textContent = "Added";
+      setTimeout(() => { if (btn.isConnected) btn.textContent = prev; }, 900);
+    }
+  }
+  function toggleWish(id) {
+    if (wish.has(id)) { wish.delete(id); toast("Removed from saved"); }
+    else { wish.add(id); toast("Saved"); }
+    syncSave();
+    renderCart();
+  }
+  function openProduct(id) {
+    const p = byId[id];
+    if (!p) return;
+    closeOverlays();
+    document.getElementById("dlg-cat").textContent = p.cat;
+    document.getElementById("dlg-title").textContent = p.name;
+    document.getElementById("dlg-note").textContent = p.note;
+    document.getElementById("dlg-price").textContent = inr.format(p.price);
+    const add = document.getElementById("dlg-add");
+    add.dataset.add = id;
+    add.textContent = "Add to bag";
+    const media = document.getElementById("dlg-media");
+    media.className = "dlg-media shoe" + (p.leather === "jutti-gold" ? " ground-ink" : "");
+    media.replaceChildren(shoeNode(p.leather));
+    if (!dlg.open) dlg.showModal();
+  }
+  function renderSearch(value) {
+    const hits = document.getElementById("search-hits");
+    const query = value.trim().toLowerCase();
+    const list = products.filter((p) => (p.name + " " + p.cat + " " + p.note).toLowerCase().includes(query));
+    hits.replaceChildren();
+    if (!list.length) { hits.append(el("p", "empty", "Nothing in this edit matches.")); return; }
+    list.forEach((p) => {
+      const b = el("button");
+      b.type = "button";
+      b.dataset.open = p.id;
+      b.append(el("span", null, p.name), el("span", null, inr.format(p.price)));
+      hits.append(b);
+    });
+  }
+
+  function closeOverlays() {
+    menu.classList.remove("is-open");
+    menu.inert = true;
+    header.classList.remove("is-menu");
+    menuBtn.classList.remove("is-open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.setAttribute("aria-label", "Open menu");
+    drawer.classList.remove("is-open");
+    drawer.inert = true;
+    backdrop.classList.remove("is-open");
+    search.classList.remove("is-open");
+    search.inert = true;
+    document.body.classList.remove("lock");
+  }
+  function openDrawer() {
+    lastFocus = document.activeElement;
+    closeOverlays();
+    drawer.classList.add("is-open");
+    drawer.inert = false;
+    backdrop.classList.add("is-open");
+    document.body.classList.add("lock");
+    document.getElementById("drawer-close").focus();
+  }
+  function openSearch() {
+    lastFocus = document.activeElement;
+    closeOverlays();
+    search.classList.add("is-open");
+    search.inert = false;
+    document.body.classList.add("lock");
+    renderSearch(q.value);
+    q.focus();
+  }
+  function openMenu() {
+    const open = !menu.classList.contains("is-open");
+    closeOverlays();
+    if (!open) return;
+    menu.classList.add("is-open");
+    menu.inert = false;
+    header.classList.add("is-menu");
+    menuBtn.classList.add("is-open");
+    menuBtn.setAttribute("aria-expanded", "true");
+    menuBtn.setAttribute("aria-label", "Close menu");
+    document.body.classList.add("lock");
+  }
+  function toast(msg) {
+    const t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("is-on");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => t.classList.remove("is-on"), 2200);
+  }
+  function prefill(text) {
+    closeOverlays();
+    const note = document.getElementById("note");
+    const intent = document.getElementById("intent");
+    note.value = text;
+    if (/size/i.test(text)) intent.value = "A size request";
+    document.getElementById("wholesale").scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
+    note.focus();
+  }
+  function setSwatch(button) {
+    const shoe = document.getElementById("mojari-leather");
+    const stage = document.getElementById("mojari-stage");
+    shoe.setAttribute("class", "jutti-svg " + button.dataset.swatch);
+    stage.dataset.ground = button.dataset.ground || "sand";
+    const spec = document.getElementById("colour-spec");
+    if (spec && button.dataset.label) spec.textContent = button.dataset.label;
+    button.parentElement.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", b === button ? "true" : "false"));
+  }
+
+  document.getElementById("open-cart").addEventListener("click", openDrawer);
+  document.getElementById("open-wish").addEventListener("click", openDrawer);
+  document.getElementById("open-search").addEventListener("click", openSearch);
+  document.getElementById("drawer-close").addEventListener("click", () => { closeOverlays(); if (lastFocus) lastFocus.focus(); });
+  backdrop.addEventListener("click", () => { closeOverlays(); if (lastFocus) lastFocus.focus(); });
+  menuBtn.addEventListener("click", openMenu);
+  q.addEventListener("input", () => renderSearch(q.value));
+  document.getElementById("dlg-close").addEventListener("click", () => dlg.close());
+  document.getElementById("reserve").addEventListener("click", () => {
+    if (!cart.size) { toast("Add a piece first"); return; }
+    document.getElementById("reserve-note").textContent = "Reserved on this page only. A live shop would open checkout for " + inr.format(moneyInBag()) + ".";
+    toast("Reserved in the demo");
+  });
+  document.getElementById("trade-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") || "").trim().split(/\s+/)[0] || "there";
+    document.getElementById("thanks-name").textContent = name;
+    document.getElementById("form-fields").hidden = true;
+    document.getElementById("thanks").hidden = false;
+  });
+  document.getElementById("another").addEventListener("click", () => {
+    document.getElementById("trade-form").reset();
+    document.getElementById("form-fields").hidden = false;
+    document.getElementById("thanks").hidden = true;
+    document.getElementById("name").focus();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !dlg.open) {
+      closeOverlays();
+      if (lastFocus) lastFocus.focus();
+    }
+  });
+  document.addEventListener("click", (e) => {
+    const qty = e.target.closest("[data-qty]");
+    const remove = e.target.closest("[data-remove]");
+    const add = e.target.closest("[data-add]");
+    const save = e.target.closest("[data-save]");
+    const open = e.target.closest("[data-open]");
+    const pre = e.target.closest("[data-prefill]");
+    const sw = e.target.closest("[data-swatch]");
+    if (qty) {
+      const id = qty.dataset.id;
+      const next = (cart.get(id) || 0) + Number(qty.dataset.qty);
+      if (next <= 0) cart.delete(id); else cart.set(id, next);
+      renderCart();
+      return;
+    }
+    if (remove) { cart.delete(remove.dataset.remove); renderCart(); return; }
+    if (add) { addToCart(add.dataset.add, add); return; }
+    if (save) { toggleWish(save.dataset.save); return; }
+    if (open) { openProduct(open.dataset.open); return; }
+    if (pre) { prefill(pre.dataset.prefill); return; }
+    if (sw) { setSwatch(sw); return; }
+    if (e.target.closest("a[href^='#']")) closeOverlays();
+  });
+
+  function sizePanels() {
+    if (!desktop.matches) {
+      panels.forEach((p) => { p.style.flex = ""; p.style.width = ""; });
+      guildTrack.style.transform = "";
+      return;
+    }
+    const w = guildSticky.clientWidth;
+    panels.forEach((p) => { p.style.flex = "0 0 " + w + "px"; p.style.width = w + "px"; });
+  }
+  function updateGuilds() {
+    if (!desktop.matches) return;
+    const rect = guildSection.getBoundingClientRect();
+    const scrollable = guildSection.offsetHeight - window.innerHeight;
+    const passed = Math.min(Math.max(-rect.top, 0), scrollable);
+    const maxX = Math.max(0, guildTrack.scrollWidth - guildSticky.clientWidth);
+    const p = scrollable ? passed / scrollable : 0;
+    guildTrack.style.transform = "translate3d(" + (-maxX * p) + "px,0,0)";
+    const idx = Math.min(panels.length, Math.max(1, Math.round(p * (panels.length - 1)) + 1));
+    guildIndex.textContent = String(idx).padStart(2, "0");
+  }
+  const progress = document.getElementById("progress");
+  let ticking = false;
+  function onScroll() {
+    const y = window.scrollY;
+    header.classList.toggle("is-stuck", y > 8);
+    const max = root.scrollHeight - root.clientHeight;
+    progress.style.transform = "scaleX(" + (max ? y / max : 0) + ")";
+    updateGuilds();
+    ticking = false;
+  }
+  window.addEventListener("scroll", () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  window.addEventListener("resize", () => { sizePanels(); updateGuilds(); });
+  desktop.addEventListener("change", () => { sizePanels(); updateGuilds(); });
+
+  const stage = document.getElementById("lens-stage");
+  const lens = document.getElementById("lens");
+  const inner = document.getElementById("lens-inner");
+  const ZOOM = 2.15;
+  const R = 105;
+  if (fine && !reduced) {
+    stage.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      const rect = stage.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      lens.classList.add("is-on");
+      lens.style.transform = "translate(" + (x - R) + "px," + (y - R) + "px)";
+      inner.style.width = rect.width + "px";
+      inner.style.height = rect.height + "px";
+      inner.style.transformOrigin = x + "px " + y + "px";
+      inner.style.transform = "translate(" + (-x + R) + "px," + (-y + R) + "px) scale(" + ZOOM + ")";
+    });
+    stage.addEventListener("pointerleave", () => lens.classList.remove("is-on"));
+  }
+
+  if (fine && !reduced) {
+    const cursor = document.getElementById("cursor");
+    const label = document.getElementById("cursor-label");
+    let cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
+    document.addEventListener("pointermove", (e) => { tx = e.clientX; ty = e.clientY; });
+    document.addEventListener("pointerover", (e) => {
+      const hot = e.target.closest("[data-cursor]");
+      cursor.classList.toggle("has-label", Boolean(hot));
+      label.textContent = hot ? hot.dataset.cursor : "";
+    });
+    (function loop() {
+      cx += (tx - cx) * 0.18;
+      cy += (ty - cy) * 0.18;
+      cursor.style.transform = "translate(" + cx + "px," + cy + "px) translate(-50%,-50%)";
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll("[data-magnet]").forEach((node) => {
+      node.addEventListener("pointermove", (e) => {
+        const r = node.getBoundingClientRect();
+        const x = e.clientX - (r.left + r.width / 2);
+        const y = e.clientY - (r.top + r.height / 2);
+        node.style.transform = "translate(" + (x * 0.18) + "px," + (y * 0.28) + "px)";
+      });
+      node.addEventListener("pointerleave", () => { node.style.transform = ""; });
+    });
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("in");
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll(".reveal").forEach((n) => io.observe(n));
+
+  renderShop();
+  renderCart();
+  sizePanels();
+  requestAnimationFrame(() => { sizePanels(); updateGuilds(); });
+  onScroll();
+
+  if (reduced) root.classList.add("is-open", "ready");
+  else {
+    setTimeout(() => root.classList.add("is-open"), 680);
+    setTimeout(() => root.classList.add("ready"), 1750);
+    setTimeout(() => { const loader = document.getElementById("loader"); if (loader) loader.remove(); }, 2700);
+  }
+})();
+</script>
+</body>
+</html>

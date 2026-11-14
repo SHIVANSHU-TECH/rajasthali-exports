@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rajasthali Exports — The men's last</title>
+<meta name="description" content="A design concept for Rajasthali Exports: how a Jaipur men's mojari is lasted, stitched, and ordered.">
+<meta name="theme-color" content="#2A1014">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Outfit:wght@300;400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
+<style>
+  :root {
+    --maroon: #722F37; --deep: #2A1014; --ink: #241816; --muted: #6A5E58;
+    --clay: #9A4523; --gold: #C6A15A; --gold-2: #E6D2A3;
+    --sand: #F3EBDD; --paper: #FBF7F1; --line: rgba(74,28,36,.16);
+    --header: 92px;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Outfit", "Segoe UI", sans-serif;
+    --deva: "Tiro Devanagari Hindi", serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--sand); color: var(--ink); font-family: var(--sans); font-weight: 380; line-height: 1.55; }
+  img { max-width: 100%; display: block; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -.03em; line-height: .95; margin: 0; }
+  p { margin: 0; }
+  ::selection { background: var(--maroon); color: var(--sand); }
+  :focus-visible { outline: 2px solid var(--gold-2); outline-offset: 3px; }
+  .wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+  .eyebrow { letter-spacing: .22em; text-transform: uppercase; font-size: .72rem; color: var(--gold-2); font-weight: 500; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .progress { position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 90; background: linear-gradient(90deg, #8C6232, var(--gold-2)); transform: scaleX(0); transform-origin: left; }
+  .loader { position: fixed; inset: 0; z-index: 100; pointer-events: none; }
+  .gate { position: absolute; top: 0; bottom: 0; width: 50.4%; background: #3A1419 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Ccircle cx='8' cy='8' r='1.1' fill='%23E6D2A3'/%3E%3C/svg%3E"); transition: transform 1.15s cubic-bezier(.77,0,.18,1); }
+  .gate-l { left: 0; border-right: 1px solid rgba(230,210,163,.45); }
+  .gate-r { right: 0; border-left: 1px solid rgba(230,210,163,.45); }
+  .gate::after { content: ""; position: absolute; top: 12vh; height: 36vh; width: 46%; border: 1px solid rgba(230,210,163,.45); border-bottom: 0; border-radius: 200px 200px 0 0; }
+  .gate-l::after { right: 10%; } .gate-r::after { left: 10%; }
+  html.is-open .gate-l { transform: translateX(-105%); }
+  html.is-open .gate-r { transform: translateX(105%); }
+  .loader-mark { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; color: var(--gold-2); text-align: center; transition: opacity .35s; }
+  html.is-open .loader-mark { opacity: 0; }
+  .loader-mark .deva { font-family: var(--deva); font-size: 2.2rem; margin: .3rem 0 0; }
+  .loader-mark .en { letter-spacing: .28em; text-transform: uppercase; font-size: .7rem; }
+  html.js:not(.ready) { overflow: hidden; }
+  header.site { position: fixed; inset: 0 0 auto 0; z-index: 70; color: var(--sand); }
+  .nav { height: var(--header); display: flex; align-items: center; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+  header.site.is-light { color: var(--ink); }
+  header.site.is-light .nav { background: rgba(243,235,221,.92); backdrop-filter: blur(14px); }
+  .logo-deva { display: block; font-family: var(--deva); font-size: .85rem; line-height: 1.2; color: var(--gold-2); }
+  header.site.is-light .logo-deva { color: var(--clay); }
+  .logo-en { font-family: var(--serif); font-size: 1.35rem; line-height: 1; white-space: nowrap; }
+  .logo-en em { font-style: italic; font-weight: 500; opacity: .75; }
+  .nav-links { display: flex; gap: 1.2rem; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; }
+  .nav-links a { position: relative; padding: .2rem 0; }
+  .nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .35s; }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-tools { display: flex; align-items: center; gap: .1rem; }
+  .icon-btn { width: 42px; height: 42px; border: 0; background: transparent; border-radius: 50%; display: grid; place-items: center; position: relative; color: inherit; }
+  .icon-btn:hover { background: rgba(255,255,255,.08); }
+  header.site.is-light .icon-btn:hover { background: rgba(114,47,55,.08); }
+  .icon-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+  .badge { position: absolute; top: 4px; right: 2px; min-width: 16px; height: 16px; border-radius: 99px; background: var(--clay); color: white; font-size: 10px; display: grid; place-items: center; font-weight: 600; }
+  .badge[hidden] { display: none; }
+  .menu-btn { display: none; width: 42px; height: 42px; border: 0; background: transparent; }
+  .menu-btn span { display: block; width: 18px; height: 1.5px; margin: 5px auto; background: currentColor; }
+  .overlay { position: fixed; inset: 0; z-index: 60; background: var(--deep); color: var(--sand); padding: 120px 8vw; transform: translateY(-101%); transition: transform .6s cubic-bezier(.77,0,.18,1); }
+  .overlay.is-open { transform: none; }
+  .overlay a { display: block; font-family: var(--serif); font-size: clamp(2.4rem, 8vw, 4rem); line-height: 1.08; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 1.2rem; border-radius: 999px; border: 1px solid transparent; letter-spacing: .14em; text-transform: uppercase; font-size: .72rem; font-weight: 500; }
+  .btn-gold { background: var(--gold-2); color: var(--deep); }
+  .btn-line { background: transparent; color: inherit; border-color: currentColor; }
+  .btn-fill { background: var(--maroon); color: var(--sand); }
+  .btn-sm { min-height: 38px; padding: 0 .8rem; font-size: .66rem; }
+  .hero { min-height: 100vh; min-height: 100dvh; background: radial-gradient(ellipse at 70% 60%, #6A3A28, transparent 42%), linear-gradient(180deg, #1A0C10 0%, #3A1C18 55%, #6B4030 100%); color: var(--sand); display: grid; align-items: end; padding: calc(var(--header) + 12px) 0 48px; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 1rem; align-items: end; position: relative; z-index: 1; }
+  h1 { font-size: clamp(3.4rem, 7vw, 7.2rem); color: var(--sand); }
+  h1 em { font-style: italic; color: var(--gold-2); }
+  .word { display: inline-block; margin-right: .18em; clip-path: inset(0 -0.12em); vertical-align: bottom; }
+  .word span { display: inline-block; }
+  html.js:not(.is-open) .word span { transform: translateY(110%); }
+  html.is-open .word span { animation: rise 1s cubic-bezier(.16,1,.3,1) forwards; animation-delay: var(--d,0s); }
+  .hero-lead { max-width: 34rem; color: rgba(243,235,221,.78); margin-top: 1rem; font-weight: 300; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.3rem; }
+  .stage { height: min(68vh, 640px); display: grid; place-items: center; perspective: 900px; }
+  .tilt { width: min(100%, 560px); transform-style: preserve-3d; transition: transform .12s linear; }
+  .shoe { width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 28px 18px rgba(0,0,0,.35)); color: #8E3542; }
+  .shoe.tan { color: #C4895A; } .shoe.black { color: #2A211C; } .shoe.gold { color: #E6D2A3; } .shoe.indigo { color: #1E4E5C; }
+  .shoe.gold [stroke] { stroke: #6E4A28; } .shoe.gold circle { fill: #6E4A28; }
+  .buta { stroke-dasharray: 100; stroke-dashoffset: 100; }
+  html.is-open .buta { animation: draw 1.5s ease forwards .55s; }
+  .marquee { overflow: hidden; border-block: 1px solid var(--line); background: #fff; }
+  .marquee-track { display: flex; width: max-content; animation: ticker 32s linear infinite; padding: .8rem 0; }
+  .marquee span { padding: 0 1rem; letter-spacing: .18em; text-transform: uppercase; font-size: .74rem; color: var(--deep); }
+  .marquee .deva { font-family: var(--deva); letter-spacing: 0; text-transform: none; font-size: 1rem; color: var(--clay); }
+  .h-scroll { position: relative; }
+  .h-track { display: flex; }
+  .panel { position: relative; overflow: hidden; color: var(--sand); background: var(--deep); }
+  .panel-copy { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 12vh 7vw 8vh; max-width: 640px; }
+  .panel .num { letter-spacing: .2em; font-size: .74rem; text-transform: uppercase; color: var(--gold-2); }
+  .panel h3 { font-size: clamp(2.8rem, 5vw, 4.8rem); margin: .3rem 0 .6rem; color: inherit; }
+  .panel p { max-width: 34rem; color: rgba(243,235,221,.84); }
+  .panel .shoe { width: min(64%, 620px); position: absolute; right: 3vw; top: 14vh; }
+  .panel.tan { background: #4A2A1C; } .panel.tan .shoe { color: #C4895A; }
+  .panel.gold { background: #3A2414; } .panel.gold .shoe { color: #E6D2A3; }
+  .panel.ink .shoe { color: #C46A74; }
+  .sizes { padding: 5.5rem 0; }
+  .size-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 2rem; align-items: center; }
+  .size-num { font-family: var(--serif); font-size: clamp(6rem, 14vw, 11rem); line-height: .8; color: var(--maroon); }
+  .size-num span { display: inline-block; clip-path: inset(0 -0.05em); }
+  .size-num b { display: inline-block; font-weight: 500; }
+  .sizes-row { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; }
+  .sizes-row button { min-width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line); background: white; }
+  .sizes-row button[aria-pressed="true"] { background: var(--deep); color: var(--sand); border-color: var(--deep); }
+  .quiet { color: var(--muted); font-size: .92rem; margin-top: .8rem; }
+  .shop { padding: 1rem 0 5rem; }
+  .shop-head { display: flex; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: 1.2rem; }
+  .shop-head h2 { font-size: clamp(2.4rem, 4vw, 3.8rem); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .card-visual { aspect-ratio: 4/5; border-radius: 18px; background: linear-gradient(180deg, #F7F1E6, #E4D0B4); display: grid; place-items: center; overflow: hidden; }
+  .card-visual .shoe { width: 92%; }
+  .card button.hit { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 0; color: inherit; }
+  .card-cat { display: block; margin-top: .7rem; letter-spacing: .16em; text-transform: uppercase; font-size: .68rem; color: var(--clay); }
+  .card-name { display: block; font-family: var(--serif); font-size: 1.4rem; line-height: 1.1; margin-top: .15rem; }
+  .card-row { display: flex; align-items: center; gap: .4rem; margin-top: .45rem; flex-wrap: wrap; }
+  .card-row .price { margin-right: auto; font-weight: 560; }
+  .desk { padding: 0 0 5rem; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .split-copy, .split-form { border-radius: 24px; padding: clamp(1.4rem, 3vw, 2.4rem); }
+  .split-copy { background: var(--deep); color: var(--sand); }
+  .split-copy h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); color: var(--sand); max-width: 12ch; }
+  .split-form { background: white; border: 1px solid var(--line); }
+  label { display: block; margin: .8rem 0 .15rem; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  input, select, textarea { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: transparent; padding: .65rem 0; border-radius: 0; }
+  textarea { min-height: 80px; resize: vertical; }
+  footer { background: #1A100E; color: rgba(243,235,221,.78); padding: 3rem 0 1.4rem; }
+  footer a { display: block; padding: .2rem 0; }
+  .foot { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .legal { margin-top: 1.6rem; padding-top: .8rem; border-top: 1px solid rgba(255,255,255,.1); font-size: .8rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .search { position: fixed; inset: var(--header) 0 0 0; background: rgba(243,235,221,.96); z-index: 65; padding: 1.4rem 0; opacity: 0; pointer-events: none; }
+  .search.is-open { opacity: 1; pointer-events: auto; }
+  .search input { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 3rem); }
+  .hits { display: grid; gap: .5rem; margin-top: 1rem; }
+  .hits button { display: flex; justify-content: space-between; width: 100%; text-align: left; background: white; border: 1px solid var(--line); border-radius: 14px; padding: .8rem 1rem; }
+  .backdrop { position: fixed; inset: 0; background: rgba(20,8,10,.45); opacity: 0; pointer-events: none; z-index: 72; }
+  .backdrop.is-open { opacity: 1; pointer-events: auto; }
+  .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); background: var(--paper); z-index: 73; transform: translateX(104%); transition: transform .5s cubic-bezier(.16,1,.3,1); display: flex; flex-direction: column; }
+  .drawer.is-open { transform: none; }
+  .drawer header, .drawer footer { padding: 1rem 1.1rem; }
+  .drawer header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
+  .drawer-body { padding: 1rem 1.1rem; overflow: auto; flex: 1; }
+  .cart-line { display: grid; grid-template-columns: 84px 1fr; gap: .7rem; padding: .7rem 0; border-bottom: 1px solid var(--line); }
+  .thumb { background: #E7D3B4; border-radius: 10px; display: grid; place-items: center; }
+  .thumb .shoe { width: 100%; }
+  dialog { border: 0; padding: 0; background: transparent; max-width: calc(100vw - 20px); }
+  dialog::backdrop { background: rgba(20,8,10,.5); }
+  .dlg { width: min(880px, calc(100vw - 20px)); display: grid; grid-template-columns: 1.1fr .9fr; background: var(--paper); border-radius: 22px; overflow: hidden; position: relative; }
+  .dlg-media { min-height: 380px; display: grid; place-items: center; background: linear-gradient(180deg, #F7F1E6, #E4D0B4); }
+  .dlg-media .shoe { width: min(92%, 460px); }
+  .dlg-copy { padding: 1.5rem 1.3rem; }
+  .dlg-close { position: absolute; top: 8px; right: 8px; background: white; }
+  .toast { position: fixed; left: 50%; bottom: 18px; transform: translate(-50%, 10px); background: var(--ink); color: var(--sand); padding: .65rem 1rem; border-radius: 999px; opacity: 0; z-index: 90; max-width: calc(100% - 24px); }
+  .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+  .cursor { position: fixed; z-index: 94; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(230,210,163,.8); pointer-events: none; display: none; place-items: center; color: var(--sand); }
+  .cursor span { font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; opacity: 0; }
+  .cursor.has-label { width: 78px; height: 78px; background: var(--maroon); border-color: var(--maroon); }
+  .cursor.has-label span { opacity: 1; }
+  body.lock { overflow: hidden; }
+  @media (min-width: 900px) {
+    .h-scroll { height: 400vh; width: 100%; }
+    .h-sticky { position: sticky; top: 0; height: 100vh; width: 100%; overflow: hidden; }
+    .h-track { height: 100%; }
+    .panel { height: 100%; }
+  }
+  @media (max-width: 980px) {
+    .nav-links, .nav-cta { display: none; }
+    .menu-btn { display: block; }
+    .hero-grid, .size-grid, .split { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: 1fr 1fr; }
+    .panel .shoe { position: relative; right: auto; top: auto; width: min(88%, 460px); margin: 12vh auto 0; }
+    .panel-copy { height: auto; padding: 1rem 1.2rem 1.4rem; }
+  }
+  @media (max-width: 899px) {
+    .h-sticky { overflow-x: auto; scroll-snap-type: x mandatory; }
+    .panel { flex: 0 0 86vw; width: 86vw; height: auto; scroll-snap-align: center; }
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+    .dlg { grid-template-columns: 1fr; max-height: calc(100dvh - 20px); overflow: auto; }
+    .dlg-media { min-height: 220px; }
+    h1 { font-size: clamp(2.7rem, 12vw, 4rem); }
+    .stage { height: 46vh; min-height: 240px; }
+    .logo-en { font-size: 1.12rem; }
+  }
+  @media (pointer: fine) { .cursor { display: grid; } }
+  @keyframes rise { to { transform: none; } }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .loader { display: none; }
+    .word span, .buta { transform: none; animation: none; stroke-dashoffset: 0; }
+    .marquee-track, .gate { animation: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="loader" aria-hidden="true">
+  <div class="gate gate-l"></div><div class="gate gate-r"></div>
+  <div class="loader-mark"><p class="deva">राजस्थली</p><p class="en">The last</p></div>
+</div>
+<header class="site" id="header">
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#top" aria-label="Rajasthali Exports, home">
+        <span class="logo-deva">राजस्थली</span>
+        <span class="logo-en">Rajasthali <em>Exports</em></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#making">The making</a>
+        <a href="#sizes">Sizes</a>
+        <a href="#shop">Shop</a>
+        <a href="#desk">Desk</a>
+      </nav>
+      <div class="nav-tools">
+        <button class="icon-btn" id="open-search" type="button" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l5 5"/></svg></button>
+        <button class="icon-btn" id="open-cart" type="button" aria-label="Open bag"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V7a3 3 0 0 1 6 0v1"/></svg><span class="badge" id="cart-count" hidden>0</span></button>
+        <a class="btn btn-line nav-cta" href="#desk">Get in touch</a>
+        <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="overlay" id="overlay" inert>
+  <a href="#making">The making</a>
+  <a href="#sizes">Sizes</a>
+  <a href="#shop">Shop</a>
+  <a href="#desk">Desk</a>
+</div>
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Jaipur · men's footwear</p>
+        <h1>
+          <span class="word"><span style="--d:.05s">The</span></span>
+          <span class="word"><span style="--d:.12s">men's</span></span>
+          <span class="word"><span style="--d:.2s">last.</span></span>
+          <em class="word"><span style="--d:.34s">Cut</span></em>
+          <em class="word"><span style="--d:.42s">in</span></em>
+          <em class="word"><span style="--d:.5s">Jaipur.</span></em>
+        </h1>
+        <p class="hero-lead">A mojari is not printed. It is pulled over a wooden last, stitched through the hide, and finished as a pair. Move across the shoe.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#making">Watch it made</a>
+          <a class="btn btn-line" href="#shop">See the pairs</a>
+        </div>
+      </div>
+      <div class="stage" id="stage" data-cursor="Turn">
+        <div class="tilt" id="tilt">
+          <svg class="shoe" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path class="buta" pathLength="100" fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Men's mojari</span><span class="deva">राजस्थली</span><span>Khussa</span><span>Nagra</span><span>Hand lasted</span><span>Leather sole</span><span>Packed in pairs</span>
+      <span>Men's mojari</span><span class="deva">राजस्थली</span><span>Khussa</span><span>Nagra</span><span>Hand lasted</span><span>Leather sole</span><span>Packed in pairs</span>
+    </div>
+  </section>
+  <section class="h-scroll" id="making" aria-label="How a pair is made">
+    <div class="h-sticky" id="sticky">
+      <div class="h-track" id="track">
+        <article class="panel ink">
+          <svg class="shoe" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/></svg>
+          <div class="panel-copy"><span class="num">01 — The hide</span><h3>One skin, two shoes.</h3><p>Vegetable-tanned leather, cut as a pair so the colour matches. The upper is still quiet here. The embroidery comes later.</p></div>
+        </article>
+        <article class="panel tan">
+          <svg class="shoe" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.6" d="M118 150C150 90 210 78 248 108"/></svg>
+          <div class="panel-copy"><span class="num">02 — The last</span><h3>Pulled to the foot.</h3><p>The upper is drawn over a men's Jaipur last and left to settle. This is the slow part. A size is a shape, not a number on a box.</p></div>
+        </article>
+        <article class="panel gold">
+          <svg class="shoe" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path class="buta" pathLength="100" fill="none" stroke="#6E4A28" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#6E4A28"/></svg>
+          <div class="panel-copy"><span class="num">03 — The thread</span><h3>Gold, where it belongs.</h3><p>A buta on the vamp. Heavier on the nagra, quieter on the black pair. The khussa can leave this step almost silent.</p></div>
+        </article>
+        <article class="panel ink">
+          <svg class="shoe" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path class="buta" pathLength="100" fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg>
+          <div class="panel-copy"><span class="num">04 — The sole</span><h3>Stitched, then checked.</h3><p>A leather sole, sewn through, then looked at as a pair. It leaves Jaipur insured, with a packing list if the order is a size run.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="sizes" id="sizes">
+    <div class="wrap size-grid">
+      <div>
+        <p class="size-num" aria-live="polite"><span><b id="size-figure">8</b></span></p>
+        <p class="quiet">UK men's size. A sample pair is made in the size you choose here.</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color:var(--maroon)">The size</p>
+        <h2 style="font-size:clamp(2.4rem,4vw,3.6rem);max-width:14ch">Pick a size. The last changes with it.</h2>
+        <div class="sizes-row" role="group" aria-label="UK men's size">
+          <button type="button" data-size="6">6</button>
+          <button type="button" data-size="7">7</button>
+          <button type="button" data-size="8" aria-pressed="true">8</button>
+          <button type="button" data-size="9">9</button>
+          <button type="button" data-size="10">10</button>
+          <button type="button" data-size="11">11</button>
+        </div>
+        <p class="quiet" id="size-note">UK 8, the house sample. Half sizes are taken on the trade note.</p>
+        <button class="btn btn-fill" type="button" id="size-add" style="margin-top:1rem">Add UK 8</button>
+      </div>
+    </div>
+  </section>
+  <section class="shop" id="shop">
+    <div class="wrap">
+      <div class="shop-head">
+        <div>
+          <p class="eyebrow" style="color:var(--maroon)">The edit</p>
+          <h2>Pairs from this last.</h2>
+        </div>
+        <p class="quiet" style="max-width:28rem">Drawings, until the studio photographs arrive. Prices are for this presentation.</p>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+  <section class="desk" id="desk">
+    <div class="wrap split">
+      <div class="split-copy">
+        <p class="eyebrow">Trade desk</p>
+        <h2>A size run, from one approved pair.</h2>
+        <p class="quiet" style="color:rgba(243,235,221,.8)">Shops, weddings, and export cartons. Minimums are discussed on the sample.</p>
+      </div>
+      <form class="split-form" id="form">
+        <h2 style="font-size:2.2rem">Tell us the order.</h2>
+        <div id="fields">
+          <label for="name">Name</label><input id="name" name="name" required placeholder="Your name">
+          <label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@studio.com">
+          <label for="note">The brief</label><textarea id="note" name="note" placeholder="Pairs, sizes, or a leather to match."></textarea>
+          <button class="btn btn-fill" type="submit" style="margin-top:1rem">Send the note</button>
+          <p class="quiet">This demo keeps the note on the page.</p>
+        </div>
+        <div id="thanks" hidden>
+          <h3 style="font-size:2.2rem;margin:.4rem 0">Received, <span id="thanks-name">there</span>.</h3>
+          <p>In the live shop this would reach the Jaipur desk.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="logo-en" style="color:var(--sand)">Rajasthali <em>Exports</em></span>
+        <p style="max-width:28rem;margin-top:.6rem">Jaipur men's footwear. This page is the making of a pair.</p>
+      </div>
+      <div>
+        <a href="../">All versions</a>
+        <a href="../v1/">/v1 The first demo</a>
+        <a href="../v3/">/v3 The shop floor</a>
+        <a href="mailto:export@rajasthaliexports.com">Email the atelier</a>
+      </div>
+    </div>
+    <div class="legal"><span>© 2026 Rajasthali Exports.</span><span>Design concept. Shoe drawings stand in for studio photography.</span></div>
+  </div>
+</footer>
+<div class="search" id="search" inert>
+  <div class="wrap">
+    <label class="sr" for="q">Search</label>
+    <input id="q" type="search" placeholder="Search the pairs" autocomplete="off">
+    <div class="hits" id="hits"></div>
+  </div>
+</div>
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" inert aria-label="Bag">
+  <header><h2>Your bag</h2><button class="icon-btn" id="drawer-close" type="button" aria-label="Close bag"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+  <div class="drawer-body" id="drawer-body"></div>
+  <footer>
+    <p style="display:flex;justify-content:space-between"><span>Total</span><strong id="total">₹0</strong></p>
+    <button class="btn btn-fill" id="reserve" type="button" style="width:100%;margin-top:.6rem">Reserve in this demo</button>
+    <p class="quiet" id="reserve-note">Nothing is charged.</p>
+  </footer>
+</aside>
+<dialog id="dlg">
+  <div class="dlg">
+    <button class="icon-btn dlg-close" id="dlg-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="dlg-media" id="dlg-media"></div>
+    <div class="dlg-copy">
+      <p class="eyebrow" id="dlg-cat" style="color:var(--maroon)"></p>
+      <h3 id="dlg-title" style="font-size:2.3rem;margin:.3rem 0 .6rem"></h3>
+      <p id="dlg-note"></p>
+      <p id="dlg-price" style="font-family:var(--serif);font-size:1.8rem;margin:.8rem 0"></p>
+      <button class="btn btn-fill" id="dlg-add" type="button">Add to bag</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursor-label"></span></div>
+<script>
+(function () {
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine = matchMedia("(pointer: fine)").matches;
+  const desktop = matchMedia("(min-width: 900px)");
+  const root = document.documentElement;
+  const inr = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 });
+  const SHOE = `<svg class="shoe" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg>`;
+  const products = [
+    { id: "mojari", name: "Maroon men's mojari", cat: "Mojari", price: 3450, tone: "", note: "The house pair. Maroon hide, a gold buta, a stitched leather sole." },
+    { id: "khussa", name: "Tan leather khussa", cat: "Khussa", price: 2950, tone: "tan", note: "Tan hide with the toe turned up. The plain men's pair." },
+    { id: "nagra", name: "Gold wedding nagra", cat: "Nagra", price: 6400, tone: "gold", note: "Heavier gold thread. Worn with a sherwani." },
+    { id: "black", name: "Black leather mojari", cat: "Mojari", price: 3200, tone: "black", note: "The same last in black, embroidery kept small." }
+  ];
+  const byId = Object.fromEntries(products.map((p) => [p.id, p]));
+  const cart = new Map();
+  let size = "8";
+  const header = document.getElementById("header");
+  const overlay = document.getElementById("overlay");
+  const drawer = document.getElementById("drawer");
+  const backdrop = document.getElementById("backdrop");
+  const search = document.getElementById("search");
+  const dlg = document.getElementById("dlg");
+  const section = document.getElementById("making");
+  const sticky = document.getElementById("sticky");
+  const track = document.getElementById("track");
+  const panels = [...track.children];
+
+  function el(tag, cls, text) { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function shoeNode(tone) {
+    const t = document.createElement("template"); t.innerHTML = SHOE;
+    const n = t.content.firstElementChild;
+    if (tone) n.classList.add(tone);
+    return n;
+  }
+  function renderShop() {
+    const grid = document.getElementById("grid");
+    products.forEach((p) => {
+      const card = el("article", "card");
+      const hit = el("button", "hit"); hit.type = "button"; hit.dataset.open = p.id; hit.dataset.cursor = "View";
+      const visual = el("div", "card-visual"); visual.append(shoeNode(p.tone));
+      hit.append(visual, el("span", "card-cat", p.cat), el("span", "card-name", p.name));
+      const row = el("div", "card-row");
+      row.append(el("span", "price", inr.format(p.price)));
+      const add = el("button", "btn btn-fill btn-sm", "Add"); add.type = "button"; add.dataset.add = p.id;
+      row.append(add); card.append(hit, row); grid.append(card);
+    });
+  }
+  function money() { let n = 0; cart.forEach((qty, key) => { n += qty * byId[key.split("@")[0]].price; }); return n; }
+  function sync() {
+    const count = [...cart.values()].reduce((a, b) => a + b, 0);
+    const badge = document.getElementById("cart-count");
+    badge.hidden = count === 0; badge.textContent = String(count);
+    document.getElementById("total").textContent = inr.format(money());
+  }
+  function renderCart() {
+    const body = document.getElementById("drawer-body"); body.replaceChildren();
+    if (!cart.size) body.append(el("p", "quiet", "The bag is empty."));
+    cart.forEach((qty, key) => {
+      const [id, sz] = key.split("@"); const p = byId[id];
+      const line = el("div", "cart-line");
+      const thumb = el("div", "thumb"); thumb.append(shoeNode(p.tone));
+      const info = el("div");
+      info.append(el("h3", null, p.name), el("p", null, "UK " + sz + " · " + inr.format(p.price)));
+      const remove = el("button", "btn btn-line btn-sm", "Remove"); remove.type = "button"; remove.dataset.remove = key;
+      info.append(remove); line.append(thumb, info); body.append(line);
+    });
+    sync();
+  }
+  function add(id) {
+    const key = id + "@" + size;
+    cart.set(key, (cart.get(key) || 0) + 1);
+    renderCart(); toast(byId[id].name + " · UK " + size);
+  }
+  function toast(msg) { const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("is-on"); clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove("is-on"), 2000); }
+  function closeAll() {
+    overlay.classList.remove("is-open"); overlay.inert = true;
+    drawer.classList.remove("is-open"); drawer.inert = true;
+    backdrop.classList.remove("is-open");
+    search.classList.remove("is-open"); search.inert = true;
+    document.body.classList.remove("lock");
+    document.getElementById("menu-btn").setAttribute("aria-label", "Open menu");
+  }
+  function openProduct(id) {
+    const p = byId[id]; closeAll();
+    document.getElementById("dlg-cat").textContent = p.cat;
+    document.getElementById("dlg-title").textContent = p.name;
+    document.getElementById("dlg-note").textContent = p.note;
+    document.getElementById("dlg-price").textContent = inr.format(p.price) + " · UK " + size;
+    document.getElementById("dlg-add").dataset.add = id;
+    document.getElementById("dlg-media").replaceChildren(shoeNode(p.tone));
+    if (!dlg.open) dlg.showModal();
+  }
+  function renderSearch(v) {
+    const hits = document.getElementById("hits"); const q = v.trim().toLowerCase();
+    const list = products.filter((p) => (p.name + p.cat).toLowerCase().includes(q));
+    hits.replaceChildren();
+    list.forEach((p) => { const b = el("button"); b.type = "button"; b.dataset.open = p.id; b.append(el("span", null, p.name), el("span", null, inr.format(p.price))); hits.append(b); });
+    if (!list.length) hits.append(el("p", "quiet", "Nothing matches."));
+  }
+  document.getElementById("open-search").onclick = () => { closeAll(); search.classList.add("is-open"); search.inert = false; document.body.classList.add("lock"); renderSearch(""); document.getElementById("q").focus(); };
+  document.getElementById("q").oninput = (e) => renderSearch(e.target.value);
+  document.getElementById("open-cart").onclick = () => { closeAll(); drawer.classList.add("is-open"); drawer.inert = false; backdrop.classList.add("is-open"); document.body.classList.add("lock"); };
+  document.getElementById("drawer-close").onclick = closeAll;
+  backdrop.onclick = closeAll;
+  document.getElementById("menu-btn").onclick = () => {
+    const open = overlay.classList.toggle("is-open");
+    overlay.inert = !open; document.body.classList.toggle("lock", open);
+  };
+  document.getElementById("dlg-close").onclick = () => dlg.close();
+  document.getElementById("reserve").onclick = () => {
+    document.getElementById("reserve-note").textContent = cart.size ? "Reserved on this page only. A live shop would open checkout for " + inr.format(money()) + "." : "Add a pair first.";
+  };
+  document.getElementById("form").onsubmit = (e) => {
+    e.preventDefault();
+    const name = String(new FormData(e.target).get("name") || "").trim().split(/\s+/)[0] || "there";
+    document.getElementById("thanks-name").textContent = name;
+    document.getElementById("fields").hidden = true;
+    document.getElementById("thanks").hidden = false;
+  };
+  document.addEventListener("click", (e) => {
+    const addBtn = e.target.closest("[data-add]");
+    const open = e.target.closest("[data-open]");
+    const remove = e.target.closest("[data-remove]");
+    const sz = e.target.closest("[data-size]");
+    if (addBtn) { add(addBtn.dataset.add); return; }
+    if (open) { openProduct(open.dataset.open); return; }
+    if (remove) { cart.delete(remove.dataset.remove); renderCart(); return; }
+    if (sz) {
+      size = sz.dataset.size;
+      document.querySelectorAll("[data-size]").forEach((b) => b.setAttribute("aria-pressed", b === sz ? "true" : "false"));
+      const fig = document.getElementById("size-figure");
+      fig.textContent = size;
+      if (!reduced) { fig.animate([{ transform: "translateY(40%)", opacity: 0 }, { transform: "none", opacity: 1 }], { duration: 360, easing: "cubic-bezier(.16,1,.3,1)" }); }
+      document.getElementById("size-note").textContent = "UK " + size + ". Half sizes are taken on the trade note.";
+      document.getElementById("size-add").textContent = "Add UK " + size;
+      document.getElementById("size-add").dataset.add = "mojari";
+    }
+    if (e.target.closest("a[href^='#']")) closeAll();
+  });
+  document.getElementById("size-add").dataset.add = "mojari";
+
+  function sizePanels() {
+    if (!desktop.matches) { panels.forEach((p) => { p.style.flex = ""; p.style.width = ""; }); track.style.transform = ""; return; }
+    const w = Math.min(sticky.clientWidth, document.documentElement.clientWidth);
+    panels.forEach((p) => { p.style.flex = "0 0 " + w + "px"; p.style.width = w + "px"; });
+  }
+  function onScroll() {
+    header.classList.toggle("is-light", window.scrollY > innerHeight * .72);
+    const max = root.scrollHeight - root.clientHeight;
+    document.getElementById("progress").style.transform = "scaleX(" + (max ? scrollY / max : 0) + ")";
+    if (!desktop.matches) return;
+    const rect = section.getBoundingClientRect();
+    const scrollable = section.offsetHeight - innerHeight;
+    const passed = Math.min(Math.max(-rect.top, 0), scrollable);
+    const maxX = Math.max(0, track.scrollWidth - sticky.clientWidth);
+    track.style.transform = "translate3d(" + (-maxX * (scrollable ? passed / scrollable : 0)) + "px,0,0)";
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => { sizePanels(); onScroll(); });
+  if (fine && !reduced) {
+    const stage = document.getElementById("stage");
+    const tilt = document.getElementById("tilt");
+    stage.addEventListener("pointermove", (e) => {
+      const r = stage.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      tilt.style.transform = "rotateY(" + (x * 16) + "deg) rotateX(" + (-y * 8) + "deg)";
+    });
+    stage.addEventListener("pointerleave", () => { tilt.style.transform = ""; });
+    const cursor = document.getElementById("cursor");
+    const label = document.getElementById("cursor-label");
+    let cx = 0, cy = 0, tx = 0, ty = 0;
+    document.addEventListener("pointermove", (e) => { tx = e.clientX; ty = e.clientY; });
+    document.addEventListener("pointerover", (e) => {
+      const hot = e.target.closest("[data-cursor]");
+      cursor.classList.toggle("has-label", Boolean(hot));
+      label.textContent = hot ? hot.dataset.cursor : "";
+    });
+    (function loop() { cx += (tx - cx) * .18; cy += (ty - cy) * .18; cursor.style.transform = "translate(" + cx + "px," + cy + "px) translate(-50%,-50%)"; requestAnimationFrame(loop); })();
+  }
+  renderShop(); renderCart(); sizePanels(); onScroll();
+  if (reduced) root.classList.add("is-open", "ready");
+  else {
+    setTimeout(() => root.classList.add("is-open"), 620);
+    setTimeout(() => root.classList.add("ready"), 1600);
+    setTimeout(() => { const n = document.querySelector(".loader"); if (n) n.remove(); }, 2500);
+  }
+})();
+</script>
+</body>
+</html>
