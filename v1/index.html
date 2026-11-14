@@ -262,16 +262,18 @@
   .jutti-tan { color: #C4895A; }
   .jutti-gold { color: #E6D2A3; }
   .jutti-black { color: #241C1A; }
+  .jutti-gold [stroke] { stroke: #6E4A28; }
+  .jutti-gold circle { fill: #6E4A28; }
   .shoe-stage {
     display: grid; place-items: center;
     background:
       radial-gradient(ellipse at 50% 88%, rgba(74, 28, 36, .2), transparent 52%),
       linear-gradient(180deg, #E7D3B4 0%, #C4A27A 48%, #8E6239 100%);
   }
-  .pair { width: min(82%, 420px); display: flex; align-items: flex-end; justify-content: center; }
-  .pair .jutti-svg { position: relative; width: 52%; height: auto; filter: drop-shadow(0 18px 12px rgba(40, 16, 12, .32)); }
-  .pair .back { transform: rotate(-8deg) translate(10px, 16px); }
-  .pair .front { width: 56%; margin-left: -14%; transform: rotate(9deg) translate(-4px, 0); }
+  .pair { width: min(92%, 520px); display: grid; }
+  .pair .jutti-svg { position: relative; grid-area: 1 / 1; width: 100%; height: auto; filter: drop-shadow(0 18px 12px rgba(40, 16, 12, .32)); }
+  .pair .back { transform: translate(28px, 34px) scale(.9); opacity: .7; }
+  .pair .front { transform: translate(-6px, -6px); }
   .shoe-frame {
     height: clamp(460px, 68vh, 680px); border-radius: 240px 240px 28px 28px;
     position: relative; box-shadow: var(--shadow); overflow: hidden;
@@ -285,10 +287,10 @@
       radial-gradient(ellipse at 50% 80%, rgba(230, 210, 163, .16), transparent 46%),
       #3A1419;
   }
-  .shoe-frame .jutti-svg { width: auto; height: min(76%, 520px); filter: drop-shadow(0 26px 18px rgba(40, 16, 12, .28)); }
+  .shoe-frame .jutti-svg { width: min(88%, 480px); height: auto; filter: drop-shadow(0 26px 18px rgba(40, 16, 12, .28)); }
   .panel-shoe { display: flex; flex-direction: column; }
   .panel-shoe .shoe-wrap { flex: 1; display: grid; place-items: center; padding: calc(var(--header) + 28px) 8vw 0; }
-  .panel-shoe .jutti-svg { width: auto; height: min(54vh, 480px); filter: drop-shadow(0 28px 22px rgba(0, 0, 0, .35)); }
+  .panel-shoe .jutti-svg { width: min(92%, 560px); height: auto; filter: drop-shadow(0 28px 22px rgba(0, 0, 0, .35)); }
   .panel-shoe .panel-copy { height: auto; padding-top: 1.5vh; }
   .panel-ink { background: #2A1016; }
   .panel-indigo { background: #0E2228; }
@@ -303,9 +305,9 @@
     background: linear-gradient(165deg, #F7F1E6, #E7D5BC);
   }
   .shoe-fill.ground-ink, .dlg-media.ground-ink { background: linear-gradient(165deg, #4A1C24, #2A1216); }
-  .card-visual .shoe-fill .jutti-svg { position: relative; width: auto; height: 82%; }
+  .card-visual .shoe-fill .jutti-svg { position: relative; width: 92%; height: auto; }
   .dlg-media.shoe { display: grid; place-items: center; background: linear-gradient(165deg, #F7F1E6, #E7D5BC); }
-  .dlg-media.shoe .jutti-svg { position: relative; width: auto; height: min(78%, 460px); }
+  .dlg-media.shoe .jutti-svg { position: relative; width: min(92%, 460px); height: auto; }
 
   /* Marquee + trust */
   .marquee { overflow: hidden; border-block: 1px solid var(--line); background: rgba(255,255,255,.35); }
@@ -537,6 +539,10 @@
     .h-scroll-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
     .h-scroll-track { height: 100%; }
     .panel { height: 100%; }
+    .panel-shoe { display: grid; grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr); align-items: center; }
+    .panel-shoe .shoe-wrap { order: 2; padding: 0 6vw 0 1vw; place-items: center; }
+    .panel-shoe .jutti-svg { width: min(100%, 580px); animation: sideDrift 8s ease-in-out infinite; }
+    .panel-shoe .panel-copy { justify-content: center; padding: 12vh 2vw 12vh 7vw; max-width: none; }
   }
   @media (max-width: 1100px) {
     .nav-links { gap: .8rem; letter-spacing: .08em; font-size: .68rem; }
@@ -567,7 +573,7 @@
       scroll-snap-align: center;
     }
     .panel-shoe .shoe-wrap { padding: 1.35rem 1.25rem 0; }
-    .panel-shoe .jutti-svg { height: 230px; max-width: 78%; }
+    .panel-shoe .jutti-svg { height: auto; width: min(100%, 420px); max-width: 100%; animation: none; }
     .panel-copy { padding: .4rem 1.25rem 1.35rem; max-width: none; }
     .panel-copy h3 { font-size: clamp(2.15rem, 8vw, 3.1rem); }
     .guild-progress { display: none; }
@@ -592,7 +598,7 @@
     .hero-frame { height: min(124vw, 560px); min-height: 420px; border-radius: 180px 180px 20px 20px; }
     .pair { width: min(86%, 320px); }
     .shoe-frame { height: auto; min-height: 440px; border-radius: 170px 170px 20px 20px; }
-    .shoe-frame .jutti-svg { height: min(68%, 360px); }
+    .shoe-frame .jutti-svg { width: min(88%, 340px); height: auto; }
     .block-title, .section-head h2 { font-size: clamp(2.05rem, 9vw, 3.1rem); }
     .price { font-size: 1.7rem; }
     .toast { max-width: calc(100% - 32px); text-align: center; }
@@ -613,12 +619,16 @@
   @keyframes ken { to { transform: scale(1.08); } }
   @keyframes pop { 50% { transform: scale(1.28); } }
   @keyframes shoeFloat {
-    0%, 100% { transform: rotate(9deg) translate(-4px, 0); }
-    50% { transform: rotate(6deg) translate(-4px, -12px); }
+    0%, 100% { transform: translate(-6px, -6px); }
+    50% { transform: translate(-6px, -20px); }
   }
   @keyframes shoeFloatBack {
-    0%, 100% { transform: rotate(-8deg) translate(10px, 16px); }
-    50% { transform: rotate(-6deg) translate(10px, 6px); }
+    0%, 100% { transform: translate(28px, 34px) scale(.9); }
+    50% { transform: translate(28px, 18px) scale(.9); }
+  }
+  @keyframes sideDrift {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
   }
   @media (prefers-reduced-motion: no-preference) {
     .pair .front { animation: shoeFloat 6.5s ease-in-out infinite; }
@@ -629,9 +639,9 @@
     .loader { display: none; }
     html.js:not(.is-open) .word span, .word span { transform: none; animation: none; }
     .rise-in, .reveal { opacity: 1; transform: none; }
-    .marquee-track, .is-live, .gate, .pair .jutti-svg { animation: none; transition: none; }
-    .pair .front { transform: rotate(9deg) translate(-4px, 0); }
-    .pair .back { transform: rotate(-8deg) translate(10px, 16px); }
+    .marquee-track, .is-live, .gate, .pair .jutti-svg, .panel-shoe .jutti-svg { animation: none; transition: none; }
+    .pair .front { transform: translate(-6px, -6px); }
+    .pair .back { transform: translate(28px, 34px) scale(.9); }
     .steps-line { transform: none; }
     .cursor { display: none; }
   }
@@ -744,8 +754,8 @@
       <div class="hero-visual">
         <figure class="hero-frame shoe-stage" data-cursor="Look">
           <div class="pair">
-            <svg class="jutti-svg jutti-tan back" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg>
-            <svg class="jutti-svg jutti-madder front" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg>
+            <svg class="jutti-svg jutti-tan back" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg>
+            <svg class="jutti-svg jutti-madder front" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg>
           </div>
           <figcaption class="chip">Leather study</figcaption>
         </figure>
@@ -784,7 +794,7 @@
   <section class="razai" id="mojari">
     <div class="wrap razai-grid">
       <div class="shoe-frame" id="mojari-stage">
-        <svg class="jutti-svg jutti-madder" id="mojari-leather" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg>
+        <svg class="jutti-svg jutti-madder" id="mojari-leather" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg>
         <div class="seal">Jaipur<br>leather study</div>
       </div>
       <div>
@@ -818,7 +828,7 @@
       <div class="guild-progress"><span id="guild-index">01</span> / 04</div>
       <div class="h-scroll-track" id="guild-track">
         <article class="panel panel-shoe panel-ink">
-          <div class="shoe-wrap"><svg class="jutti-svg jutti-rose" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg></div>
+          <div class="shoe-wrap"><svg class="jutti-svg jutti-rose" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg></div>
           <div class="panel-copy">
             <span class="num">01 — The men's last</span>
             <h3>The mojari</h3>
@@ -827,7 +837,7 @@
           </div>
         </article>
         <article class="panel panel-shoe panel-indigo">
-          <div class="shoe-wrap"><svg class="jutti-svg jutti-tan" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg></div>
+          <div class="shoe-wrap"><svg class="jutti-svg jutti-tan" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg></div>
           <div class="panel-copy">
             <span class="num">02 — A curled toe</span>
             <h3>The khussa</h3>
@@ -836,7 +846,7 @@
           </div>
         </article>
         <article class="panel panel-shoe panel-bridal">
-          <div class="shoe-wrap"><svg class="jutti-svg jutti-gold" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg></div>
+          <div class="shoe-wrap"><svg class="jutti-svg jutti-gold" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg></div>
           <div class="panel-copy">
             <span class="num">03 — With a sherwani</span>
             <h3>The nagra</h3>
@@ -845,7 +855,7 @@
           </div>
         </article>
         <article class="panel panel-shoe panel-day">
-          <div class="shoe-wrap"><svg class="jutti-svg jutti-black" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg></div>
+          <div class="shoe-wrap"><svg class="jutti-svg jutti-black" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg></div>
           <div class="panel-copy">
             <span class="num">04 — The quiet pair</span>
             <h3>Black leather</h3>
@@ -1033,7 +1043,7 @@
   const desktop = matchMedia("(min-width: 900px)");
   const root = document.documentElement;
   const inr = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 });
-  const SHOE = `<svg class="jutti-svg" viewBox="0 0 260 440" aria-hidden="true"><path fill="#2A1612" d="M130 28c42 22 78 78 86 150 8 78-6 160-24 210-10 28-32 42-62 46-30-4-52-18-62-46-18-50-32-132-24-210 8-72 44-128 86-150z"/><path fill="currentColor" d="M130 42c36 18 66 70 74 136 8 70-4 146-20 192-8 22-26 34-54 38-28-4-46-16-54-38-16-46-28-122-20-192 8-66 38-118 74-136z"/><path fill="#1A0E0C" opacity=".55" d="M86 318c16-26 72-28 88 0 6 20-8 48-44 56-36-8-50-36-44-56z"/><path fill="none" stroke="#E6D2A3" stroke-width="1.8" stroke-linecap="round" d="M96 156c10-24 34-38 34-38s24 14 34 38"/><path fill="none" stroke="#E6D2A3" stroke-width="1.7" stroke-linecap="round" d="M130 142c12 16 16 32 4 46-10 12-20 4-16-10 2-10 8-16 12-24"/><circle cx="130" cy="128" r="3.6" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.35" stroke-dasharray="3 4" d="M92 320c18-22 58-22 76 2 8 20-6 44-38 52-32-8-46-32-38-54"/></svg>`;
+  const SHOE = `<svg class="jutti-svg" viewBox="0 0 640 250" aria-hidden="true"><path fill="currentColor" d="M72 196C70 140 96 88 140 66C186 44 236 62 276 92C304 112 322 118 340 108C390 86 460 98 520 122C555 136 582 154 598 164C612 172 604 184 582 180C470 192 250 210 120 200C88 196 72 200 72 196Z"/><path fill="#1A0E0C" d="M118 182C250 198 450 186 568 164C560 176 460 196 250 206C140 210 100 198 118 182Z"/><path fill="#2A1216" d="M148 158C168 108 236 96 286 118C248 132 190 148 156 170C148 164 146 160 148 158Z"/><path fill="none" stroke="#E6D2A3" stroke-width="2.2" stroke-linecap="round" d="M430 112c14 6 22 20 12 32-8 10-20 8-22-2-2-12 4-18 10-24"/><circle cx="418" cy="104" r="3.5" fill="#E6D2A3"/><path fill="none" stroke="#E6D2A3" stroke-width="1.4" stroke-dasharray="4 5" d="M140 186C280 202 460 188 560 166"/></svg>`;
 
   const products = [
     { id: "mojari", name: "Maroon men's mojari", cat: "Mojari", price: 3450, was: 4200, leather: "jutti-madder", note: "A men's mojari in maroon leather, with a gold buta. The picture is a leather study — a studio photograph of the pair replaces it." },
@@ -1374,6 +1384,7 @@
     const w = guildSticky.clientWidth;
     panels.forEach((p) => { p.style.flex = "0 0 " + w + "px"; p.style.width = w + "px"; });
   }
+  let guildTarget = 0, guildCurrent = 0, guildFrame = 0;
   function updateGuilds() {
     if (!desktop.matches) return;
     const rect = guildSection.getBoundingClientRect();
@@ -1381,9 +1392,21 @@
     const passed = Math.min(Math.max(-rect.top, 0), scrollable);
     const maxX = Math.max(0, guildTrack.scrollWidth - guildSticky.clientWidth);
     const p = scrollable ? passed / scrollable : 0;
-    guildTrack.style.transform = "translate3d(" + (-maxX * p) + "px,0,0)";
+    guildTarget = -maxX * p;
     const idx = Math.min(panels.length, Math.max(1, Math.round(p * (panels.length - 1)) + 1));
     guildIndex.textContent = String(idx).padStart(2, "0");
+    if (reduced) {
+      guildCurrent = guildTarget;
+      guildTrack.style.transform = "translate3d(" + guildCurrent + "px,0,0)";
+      return;
+    }
+    if (!guildFrame) guildFrame = requestAnimationFrame(glideGuild);
+  }
+  function glideGuild() {
+    guildCurrent += (guildTarget - guildCurrent) * 0.14;
+    if (Math.abs(guildTarget - guildCurrent) < 0.5) guildCurrent = guildTarget;
+    guildTrack.style.transform = "translate3d(" + guildCurrent.toFixed(2) + "px,0,0)";
+    guildFrame = guildCurrent === guildTarget ? 0 : requestAnimationFrame(glideGuild);
   }
   const progress = document.getElementById("progress");
   let ticking = false;

@@ -88,7 +88,9 @@
   .hero-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.2rem; }
   .stage-card { background: white; border-radius: 28px; border: 1px solid var(--line); min-height: 460px; display: grid; place-items: center; position: relative; overflow: hidden; }
   .stage-card::before { content: ""; position: absolute; inset: 18px 18px auto; height: 70%; border-radius: 180px 180px 24px 24px; background: radial-gradient(circle at 50% 80%, rgba(198,161,90,.35), transparent 60%), #F3E6D2; }
-  .shoe-swap { width: min(92%, 520px); position: relative; z-index: 1; filter: drop-shadow(0 22px 14px rgba(74,28,36,.18)); }
+  .shoe-swap { width: min(92%, 520px); position: relative; z-index: 1; filter: drop-shadow(0 22px 14px rgba(74,28,36,.18)); animation: shopFloat 7.5s ease-in-out infinite; }
+  .card { transition: transform .5s cubic-bezier(.16,1,.3,1); }
+  .card:hover { transform: translateY(-6px); }
   .shoe { width: 100%; height: auto; overflow: visible; color: #8E3542; }
   .shoe.tan { color: #C4895A; } .shoe.black { color: #2A211C; } .shoe.gold { color: #C6A15A; } .shoe.indigo { color: #1E4E5C; }
   .shoe.gold [stroke] { stroke: #6E4A28; } .shoe.gold circle { fill: #6E4A28; }
@@ -182,12 +184,13 @@
     .icon-btn, .menu-btn { width: 34px; height: 34px; }
   }
   @media (pointer: fine) { .cursor { display: grid; } }
+  @keyframes shopFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
   @keyframes rise { to { transform: none; } }
   @keyframes ticker { to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) {
     .loader { display: none; }
     .word span { transform: none; animation: none; }
-    .marquee-track, .gate { animation: none; transition: none; }
+    .marquee-track, .gate, .shoe-swap, .card { animation: none; transition: none; }
   }
 </style>
 </head>
@@ -448,7 +451,7 @@
     const host = document.getElementById("hero-shoe");
     const tone = id === "khussa" ? "tan" : id === "nagra" ? "gold" : "";
     host.replaceChildren(shoeNode(tone));
-    if (!reduced) host.animate([{ opacity: 0, transform: "translateY(16px)" }, { opacity: 1, transform: "none" }], { duration: 420, easing: "cubic-bezier(.16,1,.3,1)" });
+    if (!reduced) host.animate([{ opacity: 0, transform: "translateX(48px)" }, { opacity: 1, transform: "none" }], { duration: 680, easing: "cubic-bezier(.16,1,.3,1)" });
     document.getElementById("hero-note").textContent = lasts[id].note;
     document.getElementById("hero-add").textContent = "Add the " + lasts[id].name;
     document.getElementById("hero-add").dataset.add = id === "nagra" ? "nagra" : id;
