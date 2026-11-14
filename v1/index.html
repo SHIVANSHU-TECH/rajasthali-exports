@@ -336,15 +336,18 @@
     position: absolute; left: 0; top: 0; width: 210px; height: 210px; border-radius: 50%;
     overflow: hidden; border: 1.5px solid var(--gold-2); box-shadow: 0 16px 40px rgba(20,10,10,.28);
     pointer-events: none; opacity: 0; z-index: 2;
+    transition: opacity .25s ease;
   }
   .lens.is-on { opacity: 1; }
-  .lens-inner { position: absolute; left: 0; top: 0; }
+  .lens-inner { position: absolute; left: 0; top: 0; will-change: transform; }
   .lens-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
   .lens-hint {
     position: absolute; left: 18px; bottom: 18px; z-index: 1;
     background: rgba(36, 24, 22, .72); color: var(--sand);
     border-radius: 999px; padding: .45rem .8rem; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
   }
+  .lens-hint .touch { display: none; }
+  .lens-stage { touch-action: pan-y; }
 
   /* Horizontal guilds */
   .h-scroll { position: relative; }
@@ -578,9 +581,14 @@
     .panel-copy h3 { font-size: clamp(2.15rem, 8vw, 3.1rem); }
     .guild-progress { display: none; }
     .announce .full { display: none; }
-    .lens-hint { display: none; }
-    .lens { display: none; }
-    .lens-stage { height: 52vh; min-height: 240px; border-radius: 20px; }
+    .lens {
+      width: 148px; height: 148px; opacity: 1;
+      border-width: 1.5px;
+    }
+    .lens-hint { display: block; font-size: .64rem; letter-spacing: .1em; padding: .4rem .7rem; }
+    .lens-hint .mouse { display: none; }
+    .lens-hint .touch { display: inline; }
+    .lens-stage { height: 52vh; min-height: 240px; border-radius: 20px; cursor: grab; }
   }
   @media (min-width: 900px) { .announce .short { display: none; } }
   @media (max-width: 640px) {
@@ -879,7 +887,7 @@
       <div class="lens-stage reveal" id="lens-stage" data-cursor="Closer">
         <img id="lens-photo" src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=2000&q=75" alt="Hawa Mahal in Jaipur, the pink facade of lattice windows, with riders in the foreground" width="1600" height="1000" decoding="async">
         <div class="lens" id="lens"><div class="lens-inner" id="lens-inner"><img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=2000&q=75" alt=""></div></div>
-        <p class="lens-hint">Move across the facade</p>
+        <p class="lens-hint"><span class="mouse">Move across the facade</span><span class="touch">Drag across the facade</span></p>
       </div>
     </div>
   </section>
@@ -1427,22 +1435,62 @@
   const stage = document.getElementById("lens-stage");
   const lens = document.getElementById("lens");
   const inner = document.getElementById("lens-inner");
-  const ZOOM = 2.15;
-  const R = 105;
-  if (fine && !reduced) {
-    stage.addEventListener("pointermove", (e) => {
-      if (e.pointerType !== "mouse") return;
-      const rect = stage.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      lens.classList.add("is-on");
-      lens.style.transform = "translate(" + (x - R) + "px," + (y - R) + "px)";
-      inner.style.width = rect.width + "px";
-      inner.style.height = rect.height + "px";
-      inner.style.transformOrigin = x + "px " + y + "px";
-      inner.style.transform = "translate(" + (-x + R) + "px," + (-y + R) + "px) scale(" + ZOOM + ")";
+  let lensDragging = false;
+  function lensSize() {
+    return window.matchMedia("(max-width: 899px)").matches ? 74 : 105;
+  }
+  function lensZoom() {
+    return window.matchMedia("(max-width: 899px)").matches ? 1.95 : 2.15;
+  }
+  function placeLens(x, y, show) {
+    const rect = stage.getBoundingClientRect();
+    const R = lensSize();
+    const zoom = lensZoom();
+    const px = Math.max(R, Math.min(rect.width - R, x));
+    const py = Math.max(R, Math.min(rect.height - R, y));
+    if (show) lens.classList.add("is-on");
+    lens.style.transform = "translate(" + (px - R) + "px," + (py - R) + "px)";
+    inner.style.width = rect.width + "px";
+    inner.style.height = rect.height + "px";
+    inner.style.transformOrigin = px + "px " + py + "px";
+    inner.style.transform = "translate(" + (-px + R) + "px," + (-py + R) + "px) scale(" + zoom + ")";
+  }
+  function seedLens() {
+    if (reduced) return;
+    const rect = stage.getBoundingClientRect();
+    if (!rect.width) return;
+    const mobile = window.matchMedia("(max-width: 899px)").matches;
+    placeLens(rect.width * (mobile ? 0.62 : 0.68), rect.height * 0.34, mobile);
+    if (!mobile) lens.classList.remove("is-on");
+  }
+  if (!reduced) {
+    stage.addEventListener("pointerenter", (e) => {
+      if (e.pointerType === "mouse") placeLens(e.clientX - stage.getBoundingClientRect().left, e.clientY - stage.getBoundingClientRect().top, true);
     });
-    stage.addEventListener("pointerleave", () => lens.classList.remove("is-on"));
+    stage.addEventListener("pointermove", (e) => {
+      if (e.pointerType === "mouse") {
+        placeLens(e.clientX - stage.getBoundingClientRect().left, e.clientY - stage.getBoundingClientRect().top, true);
+        return;
+      }
+      if (!lensDragging) return;
+      e.preventDefault();
+      placeLens(e.clientX - stage.getBoundingClientRect().left, e.clientY - stage.getBoundingClientRect().top, true);
+    }, { passive: false });
+    stage.addEventListener("pointerdown", (e) => {
+      if (e.pointerType === "mouse") return;
+      lensDragging = true;
+      stage.setPointerCapture(e.pointerId);
+      placeLens(e.clientX - stage.getBoundingClientRect().left, e.clientY - stage.getBoundingClientRect().top, true);
+    });
+    stage.addEventListener("pointerup", () => { lensDragging = false; });
+    stage.addEventListener("pointercancel", () => { lensDragging = false; });
+    stage.addEventListener("pointerleave", (e) => {
+      if (e.pointerType === "mouse" && !window.matchMedia("(max-width: 899px)").matches) lens.classList.remove("is-on");
+    });
+    window.addEventListener("resize", seedLens);
+    if (document.readyState === "complete") seedLens();
+    else window.addEventListener("load", seedLens);
+    requestAnimationFrame(seedLens);
   }
 
   if (fine && !reduced) {
